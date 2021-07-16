@@ -23,6 +23,7 @@ class AssociationFixtures extends Fixture
 
         $association->setName('La 404 DeVinci');
         $association->setPassword($password);
+        $association->setRoles(['ROLE_USER']);
         $association->setLogoColor('aled');
         $association->setBanner('aled');
         $association->setStatus('/');
