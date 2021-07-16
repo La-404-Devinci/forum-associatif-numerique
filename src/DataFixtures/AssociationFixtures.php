@@ -15,6 +15,8 @@ class AssociationFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
+    // création de fausses données
+
     public function load(ObjectManager $manager)
     {
         $association = new Association();

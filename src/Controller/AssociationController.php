@@ -10,10 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AssociationController extends AbstractController
 {
 
-    // façon d'écrire les routes en php 8
 
-    #[Route('/', name: 'accueil')]
 
+    // -------------- PAGE D'ACCUEIL --------------
+    
+    #[Route('/', name: 'accueil')] // façon d'écrire les routes en php 8
     public function index(): Response
     {
 
@@ -24,8 +25,19 @@ class AssociationController extends AbstractController
         ]);
     }
 
+    // -------------- PAGE PROFIL --------------
+
+    #[Route('/profil', name: 'profil')]
+    public function profil()
+    {
+        return $this->render('association/prof.html.twig');
+    }
+
+
+    // -------------- LISTING ASSOS --------------
+
+
     #[Route('/associations', name: 'associations')]
-    
     public function show(): Response
     {
         // récupérer les datas de la base de données
@@ -47,4 +59,8 @@ class AssociationController extends AbstractController
             'associations' => $associations
         ]);
     }
+
+    
+
+
 }
