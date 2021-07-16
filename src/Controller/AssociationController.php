@@ -24,7 +24,7 @@ class AssociationController extends AbstractController
         ]);
     }
 
-    #[Route('/associations', name: 'association')]
+    #[Route('/associations', name: 'associations')]
     
     public function show(): Response
     {

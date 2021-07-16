@@ -5,12 +5,12 @@ namespace App\DataFixtures;
 use App\Entity\Association;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AssociationFixtures extends Fixture
 {
 
-    public function __construct(UserPasswordEncoderInterface $encoder)
+    public function __construct(UserPasswordHasherInterface $encoder)
     {
         $this->encoder = $encoder;
     }
@@ -19,9 +19,9 @@ class AssociationFixtures extends Fixture
     {
         $association = new Association();
 
-        $password = $this->encoder->encodePassword($association, 'password');
+        $password = $this->encoder->hashPassword($association, 'password');
 
-        $association->setName('La 404 DeVinci');
+        $association->setName('IIMPACT');
         $association->setPassword($password);
         $association->setRoles(['ROLE_USER']);
         $association->setLogoColor('aled');
@@ -30,7 +30,7 @@ class AssociationFixtures extends Fixture
         $association->setCatchphrase('aled');
         $association->setDescription('aled');
         $association->setProfileType('MOTIVE ET DYNAMIQUE OUAIS');
-        $association->setCategory('informatique');
+        $association->setCategory('club école');
 
         $manager->persist($association);
 
