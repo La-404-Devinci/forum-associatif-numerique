@@ -41,11 +41,6 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     private $logo_color;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $logo_mono;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $banner;
@@ -172,18 +167,6 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLogoColor(string $logo_color): self
     {
         $this->logo_color = $logo_color;
-
-        return $this;
-    }
-
-    public function getLogoMono(): ?string
-    {
-        return $this->logo_mono;
-    }
-
-    public function setLogoMono(?string $logo_mono): self
-    {
-        $this->logo_mono = $logo_mono;
 
         return $this;
     }
