@@ -30,7 +30,7 @@ class AssociationController extends AbstractController
     #[Route('/profil', name: 'profil')]
     public function profil()
     {
-        return $this->render('association/prof.html.twig');
+        return $this->render('association/profile.html.twig');
     }
 
 
@@ -57,6 +57,29 @@ class AssociationController extends AbstractController
         return $this->render('association/show.html.twig', [
             'controller_name' => 'AssociationController',
             'associations' => $associations
+        ]);
+    }
+
+    #[Route('/associations/{slug}', name: 'association')]
+    public function single(string $slug): Response
+    {
+        // récupérer les datas de la base de données
+
+        $association = $this->getDoctrine()
+            ->getRepository(Association::class)
+            ->findOneBySlug($slug);
+
+        // si il n'y en a pas alors on lance une erreur avec un message
+        
+        if(!$association) {
+            throw $this->createNotFoundException("Pas d'association à afficher");
+        }
+
+        // on retourne ces datas dans la vue correspondante
+
+        return $this->render('association/single.html.twig', [
+            'controller_name' => 'AssociationController',
+            'association' => $association
         ]);
     }
 
