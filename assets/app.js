@@ -10,3 +10,6 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+import AOS from "aos";
+import "@fortawesome/fontawesome-free";
+AOS.init();
