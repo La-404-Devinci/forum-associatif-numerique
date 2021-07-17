@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=AssociationRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Association implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -69,6 +70,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -239,6 +245,21 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCategory(string $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setSlug(): self
+    {
+        $this->slug = strtolower(str_replace(' ', '-', $this->name));
 
         return $this;
     }
