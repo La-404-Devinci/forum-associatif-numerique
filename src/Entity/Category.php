@@ -41,7 +41,7 @@ class Category
     private $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity=Association::class, mappedBy="category_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Association::class, mappedBy="category", orphanRemoval=true)
      */
     private $associations;
 
