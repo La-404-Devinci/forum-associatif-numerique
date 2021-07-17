@@ -21,7 +21,6 @@ class AssociationFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $association = new Association();
-        $category = new Category();
 
         $password = $this->encoder->hashPassword($association, 'password');
 
