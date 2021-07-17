@@ -1,0 +1,144 @@
+.navigation {
+
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 4px rgba(21,21,20,0.35);
+
+    &__main-menu {
+        height: 100px;
+        background-color: $bg-main;
+
+
+        display: flex;
+
+
+        padding: 10px 10%;
+
+        > div {
+
+            flex-basis: calc(100%/3);
+
+            img {
+                width: 80px;
+                height: auto;
+            }
+
+            &.navigation-forum img {
+                    margin: 0 auto;
+                    display: block;
+            }
+
+            &.navigation-main {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                text-transform: uppercase;
+                @include font-props(18, 700);
+
+                .navigation-main-burger {
+                    display: flex;
+                    flex-direction: column;
+                    @include font-props(12, 700);
+                    margin-left: 45px;
+                    cursor: pointer;
+                    transition: all 0.6s;
+                    img {
+                        width: 32px;
+                        margin-bottom: 10px;
+                        transition: all 0.6s;
+                    }
+                    &.active img {
+                        transform: rotate(90deg);
+                    }
+                }
+
+                .navigation-main-language {
+                    display: none;
+                    @include md {
+                        display: block;
+                    }
+                }
+
+            }
+        }
+
+        &-content {
+            background: $bg-main;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.6s ease-out;
+            padding-left: 10%;
+            padding-right: 10%;
+            display: grid;
+            grid-template-columns: auto;
+            grid-auto-rows: auto;
+            grid-auto-flow: dense;
+            justify-content: center;
+
+            @include md {
+                grid-template-columns: repeat(2, auto);
+                justify-content: center;
+                grid-column-gap: 150px;
+            }
+
+            @include lg {
+                grid-template-columns: repeat(4, auto);
+                justify-content: space-between;
+                grid-column-gap: unset;
+            }
+
+            &.active {
+                padding: 40px 10%;
+                height: auto;
+            }
+
+            > div {
+
+
+
+
+                > a {
+                    @include font-props(18, 700);
+                    display: flex;
+                    align-items: center;
+
+                    > img {
+                        margin-right: 25px;
+                        width: 40px;
+                    }
+
+                    &:first-child {
+                        margin-bottom: 40px;
+                    }
+
+                    &:nth-child(2n) {
+                        margin-bottom: 40px;
+                    }
+
+
+                    @include md {
+                        &:nth-child(-n+2) {
+                            margin-bottom: 40px;
+                        }
+                    }
+
+                    @include lg {
+                        &:nth-child(2n) {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+            }
+        }
+    }
+
+}

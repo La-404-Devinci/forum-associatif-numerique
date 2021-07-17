@@ -14,7 +14,7 @@ class AssociationController extends AbstractController
 
     // -------------- PAGE D'ACCUEIL --------------
     
-    #[Route('/', name: 'accueil')] // façon d'écrire les routes en php 8
+    #[Route('/', name: 'home')] // façon d'écrire les routes en php 8
     public function index(): Response
     {
         // récupérer les datas de la base de données

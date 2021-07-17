@@ -1,0 +1,83 @@
+<nav class="navigation">
+    <div class="navigation__main-menu">
+        <div class="navigation-devinci">
+            <a href="{{ path('home') }}">
+                <img src="{{ asset('build/images/logos/logo-devinci-menu.png') }}" alt="Logo Groupe DeVinci">
+            </a>
+        </div>
+        <div class="navigation-forum">
+            <a href="{{ path('home') }}">
+                <img src="{{ asset('build/images/logos/logo-forum-menu.png') }}" alt="Logo Forum Associatif Numérique">
+            </a>
+        </div>
+        <div class="navigation-main">
+            {#
+            About Language :
+            As we don't have the translation package yet, I set a twig variable language$
+            ! Must be refactored
+            #}
+            <div class="navigation-main-language">
+                {% set language = "FR" %}
+                {% if(language == "FR") %}
+                    <a href="#">en</a>
+                {% else %}
+                    <a href="#">fr</a>
+                {% endif %}
+            </div>
+            {# End of "must" refectoring section language #}
+            <div class="navigation-main-burger" id="navigation-burger">
+                <img src="{{ asset('build/images/burger-icon.png') }}" alt="Burger Icon">
+                <span>Menu</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="navigation__main-menu-content">
+        <div>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/bde.png') }}" alt="Icone BDE">
+                <span>BDE & Clubs écoles</span>
+            </a>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/tech.png') }}" alt="Icone Technologies">
+                <span>Technologies</span>
+            </a>
+
+        </div>
+        <div>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/engagement.png') }}" alt="Icone Engagement">
+                <span>Engagement</span>
+            </a>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/multimedia.png') }}" alt="Icone Multimedia">
+                <span>Multimédia</span>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/business.png') }}" alt="Icone Business">
+                <span>Business</span>
+            </a>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/sport.png') }}" alt="Icone Sports">
+                <span>Sports</span>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/art.png') }}" alt="Icone Art & Culture">
+                <span>Art & Culture</span>
+            </a>
+            <a href="#">
+                <img src="{{ asset('build/images/menu/discord.png') }}" alt="Icone Discord">
+                <span>Discord</span>
+            </a>
+        </div>
+
+
+
+
+    </div>
+</nav>
+<!-- .navigation -->

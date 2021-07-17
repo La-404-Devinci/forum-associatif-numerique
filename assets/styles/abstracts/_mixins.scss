@@ -38,3 +38,12 @@
         @content;
     }
 }
+
+/**
+* Shorcut for font combination
+* Usage : @include font-props($size, $weight)
+*/
+@mixin font-props($size: 1.6rem, $weight: 400) {
+    font-size: #{$size}px;
+    font-weight: $weight;
+}
