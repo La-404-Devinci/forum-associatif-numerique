@@ -74,7 +74,7 @@ class AssociationController extends AbstractController
 
     // -------------- SINGLE ASSO --------------
 
-    #[Route('/{slug}', name: 'association')]
+    #[Route('/associations/{slug}', name: 'association')]
     public function single(string $slug): Response
     {
         // récupérer les datas de la base de données
