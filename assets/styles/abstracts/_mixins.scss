@@ -1,0 +1,40 @@
+/**
+* Mixins for mobile first breakpoints
+* Usage : @include mixin-name { your-css here }
+*/
+
+@mixin xs() {
+    @media screen and (max-width: cacl($w-sm -1px)) {
+        @content;
+    }
+}
+
+@mixin sm() {
+    @media screen and (min-width: $w-sm) {
+        @content;
+    }
+}
+
+@mixin md() {
+    @media screen and (min-width: $w-md) {
+        @content;
+    }
+}
+
+@mixin lg() {
+    @media screen and (min-width: $w-lg) {
+        @content;
+    }
+}
+
+@mixin xl() {
+    @media screen and (min-width: $w-xl) {
+        @content;
+    }
+}
+
+@mixin xxl() {
+    @media screen and (min-width: $w-xxl) {
+        @content;
+    }
+}
