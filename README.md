@@ -7,11 +7,11 @@
 Make a copy of `.env.exemple` named `.env`. You'll need to change your database connection information
 
 ```
-# If you use MySQL
+# If you use MariaDB
 DATABASE_URL="mysql://dbuser:dbpass@127.0.0.1:3306/dbname?serverVersion=mariadb-10.5.5"
 ```
 ```
-# If you use Mariadb
+# If you use MySQL
 DATABASE_URL="mysql://dbuser:dbpass@127.0.0.1:3306/dbname?serverVersion=5.7"
 ```
 
