@@ -17,11 +17,23 @@ class AssociationController extends AbstractController
     #[Route('/', name: 'accueil')] // façon d'écrire les routes en php 8
     public function index(): Response
     {
+        // récupérer les datas de la base de données
 
-        // on retourne la vue correspondante
+        $associations = $this->getDoctrine()
+            ->getRepository(Association::class)
+            ->findAll();
+
+        // si il n'y en a pas alors on lance une erreur avec un message
+        
+        if(!$associations) {
+            throw $this->createNotFoundException("Pas d'association à afficher");
+        }
+
+        // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/index.html.twig', [
-            'controller_name' => 'AssociationController'
+            'controller_name' => 'AssociationController',
+            'associations' => $associations
         ]);
     }
 
@@ -60,6 +72,8 @@ class AssociationController extends AbstractController
         ]);
     }
 
+    // -------------- SINGLE ASSO --------------
+
     #[Route('/associations/{slug}', name: 'association')]
     public function single(string $slug): Response
     {
@@ -82,8 +96,5 @@ class AssociationController extends AbstractController
             'association' => $association
         ]);
     }
-
-    
-
 
 }
