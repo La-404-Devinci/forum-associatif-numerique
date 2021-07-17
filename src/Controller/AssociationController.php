@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Association;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\CategoryRepository;
 
 class AssociationController extends AbstractController
 {
-
-
 
     // -------------- PAGE D'ACCUEIL --------------
     

@@ -4,12 +4,13 @@
 
 {% block body %}
 
-<h1>ICI LISTING ASSOS</h1>
+<h1>ICI SINGLE ASSO</h1>
 
-{% for association in associations %}
-    <a href="{{ path('filtered_assos', {slug: association.slug}) }}">
+
+    {% for association in associations %}
+    <a href="{{ path('association', {slug: association.slug}) }}">
         <li>{{association.name}}</li>
     </a>
-{% endfor %}
+    {% endfor %}
 
 {% endblock %}
