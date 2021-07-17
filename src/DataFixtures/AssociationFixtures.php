@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Association;
+use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -20,6 +21,7 @@ class AssociationFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $association = new Association();
+        $category = new Category();
 
         $password = $this->encoder->hashPassword($association, 'password');
 
@@ -32,8 +34,6 @@ class AssociationFixtures extends Fixture
         $association->setCatchphrase('aled');
         $association->setDescription('aled');
         $association->setProfileType('MOTIVE ET DYNAMIQUE OUAIS');
-        $association->setCategory('club école');
-
         $manager->persist($association);
 
         $manager->flush();

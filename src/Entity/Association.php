@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Category;
 use App\Repository\AssociationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -69,12 +70,13 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $category;
+    private $slug;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="associations")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $slug;
+    private $category;
 
     public function getId(): ?int
     {
@@ -237,18 +239,6 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -260,6 +250,18 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSlug(): self
     {
         $this->slug = strtolower(str_replace(' ', '-', $this->name));
+
+        return $this;
+    }
+
+    public function getCategoryId(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategoryId(Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
