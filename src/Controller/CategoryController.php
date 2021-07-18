@@ -31,7 +31,8 @@ class CategoryController extends AbstractController
 
         return $this->render('category/filtered.html.twig', [
             'controller_name' => 'AssociationController',
-            'associations' => $associations
+            'associations' => $associations,
+            'category' => $category
         ]);
     }
 }
