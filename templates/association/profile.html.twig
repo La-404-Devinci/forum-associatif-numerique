@@ -2,14 +2,9 @@
 
 {% block title %}Forum des Associations{% endblock %}
 
+
 {% block body %}
 
-<h1>ICI PROFIL</h1>
-
-<p>Nom : {{ app.user.name }}</p>
-<p>Description : {{ app.user.description }}</p>
-<p>Phrase d'Accroche : {{ app.user.catchphrase }}</p>
-
-...
+{{ form(form) }}
 
 {% endblock %}

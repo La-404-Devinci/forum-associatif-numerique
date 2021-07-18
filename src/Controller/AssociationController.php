@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Association;
+use App\Form\ProfileFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\CategoryRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class AssociationController extends AbstractController
 {
@@ -40,9 +42,25 @@ class AssociationController extends AbstractController
     // -------------- PAGE PROFIL --------------
 
     #[Route('/profil', name: 'profil')]
-    public function profil()
+    public function editProfile(Request $request)
     {
-        return $this->render('association/profile.html.twig');
+        $user = $this->getUser();
+        $form = $this->createForm(ProfileFormType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash('message', 'Profil mis à jour');
+            return $this->redirectToRoute('profil');
+        }
+
+        return $this->render('association/profile.html.twig',  [
+            'form' => $form->createView(),
+        ]);
     }
 
 
@@ -58,7 +76,7 @@ class AssociationController extends AbstractController
             ->getRepository(Association::class)
             ->findAll();
 
-        // si il n'y en a pas alors on lance une erreur avec un message
+        // s'il n'y en a pas alors on lance une erreur avec un message
         
         if(!$associations) {
             throw $this->createNotFoundException("Pas d'association à afficher");
@@ -83,7 +101,7 @@ class AssociationController extends AbstractController
             ->getRepository(Association::class)
             ->findOneBySlug($slug);
 
-        // si il n'y en a pas alors on lance une erreur avec un message
+        // s'il n'y en a pas alors on lance une erreur avec un message
         
         if(!$association) {
             throw $this->createNotFoundException("Pas d'association à afficher");
