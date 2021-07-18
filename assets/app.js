@@ -19,3 +19,21 @@ document.querySelector('#navigation-burger').addEventListener('click', function(
     this.classList.toggle('active')
     document.querySelector('.navigation__main-menu-content').classList.toggle('active')
 })
+
+/*if(document.querySelectorAll('.home-theme__cat-card') != null) {
+    let maxHeight = 0
+    let query = document.querySelectorAll('.home-theme__cat-card > div p:first-of-type')
+    query.forEach(function(item){
+        console.log(item.offsetHeight)
+        if(maxHeight <= item.offsetHeight) {
+            maxHeight = item.offsetHeight
+        }
+    })
+    query.forEach(function(item){
+        if(maxHeight != item.offsetHeight) {
+            //let font = window.getComputedStyle(item).fontSize
+            //console.log('font ' + font)
+            item.style.paddingTop = maxHeight / 4 + 'px'
+        }
+    })
+}*/
