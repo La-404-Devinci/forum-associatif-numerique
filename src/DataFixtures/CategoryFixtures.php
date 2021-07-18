@@ -15,9 +15,8 @@ class CategoryFixtures extends Fixture
     {
         $category = new Category();
 
-        $category->setName('Informatique');
-        $category->setShortDescription('oui description');
-        $category->setlogo('Informatique logo ouais');
+        $category->setName('BDE & Clubs ecoles');
+        $category->setDescription('Ce sont les représentants du pôle et de ses écoles. Ils sont là pour intégrer au mieux les étudiants.');
 
         $manager->persist($category);
 

@@ -31,19 +31,14 @@ class Category
     private $slug;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $short_description;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $logo;
-
-    /**
      * @ORM\OneToMany(targetEntity=Association::class, mappedBy="category", orphanRemoval=true)
      */
     private $associations;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
 
     public function __construct()
     {
@@ -82,30 +77,6 @@ class Category
         return $this;
     }
 
-    public function getShortDescription(): ?string
-    {
-        return $this->short_description;
-    }
-
-    public function setShortDescription(string $short_description): self
-    {
-        $this->short_description = $short_description;
-
-        return $this;
-    }
-
-    public function getLogo(): ?string
-    {
-        return $this->logo;
-    }
-
-    public function setLogo(string $logo): self
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Association[]
      */
@@ -132,6 +103,18 @@ class Category
                 $association->setCategoryId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

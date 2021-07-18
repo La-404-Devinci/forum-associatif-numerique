@@ -7,7 +7,7 @@
 <h1>ICI LISTING ASSOS</h1>
 
 {% for association in associations %}
-    <a href="{{ path('filtered_assos', {slug: association.slug}) }}">
+    <a href="{{ path('association', {slug: association.slug}) }}">
         <li>{{association.name}}</li>
     </a>
 {% endfor %}

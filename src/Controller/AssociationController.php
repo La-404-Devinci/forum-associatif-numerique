@@ -8,7 +8,6 @@ use App\Form\ProfileFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 class AssociationController extends AbstractController
@@ -34,7 +33,6 @@ class AssociationController extends AbstractController
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/index.html.twig', [
-            'controller_name' => 'AssociationController',
             'associations' => $associations
         ]);
     }
@@ -85,7 +83,6 @@ class AssociationController extends AbstractController
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/show.html.twig', [
-            'controller_name' => 'AssociationController',
             'associations' => $associations
         ]);
     }
@@ -93,13 +90,8 @@ class AssociationController extends AbstractController
     // -------------- SINGLE ASSO --------------
 
     #[Route('/associations/{slug}', name: 'association')]
-    public function single(string $slug): Response
+    public function single(Association $association): Response
     {
-        // récupérer les datas de la base de données
-
-        $association = $this->getDoctrine()
-            ->getRepository(Association::class)
-            ->findOneBySlug($slug);
 
         // s'il n'y en a pas alors on lance une erreur avec un message
         
@@ -110,7 +102,6 @@ class AssociationController extends AbstractController
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/single.html.twig', [
-            'controller_name' => 'AssociationController',
             'association' => $association
         ]);
     }

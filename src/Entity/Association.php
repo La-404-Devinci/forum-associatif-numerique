@@ -254,7 +254,7 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function setSlug(): self
     {
-        $this->slug = strtolower(str_replace(' ', '-', $this->name));
+        $this->slug = strtolower(str_replace("'",'',str_replace(' ', '-', $this->name)));
 
         return $this;
     }
