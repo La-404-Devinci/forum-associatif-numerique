@@ -78,6 +78,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $video;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -262,6 +267,18 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCategoryId(Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }
