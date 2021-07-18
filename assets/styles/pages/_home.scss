@@ -1,0 +1,96 @@
+.home {
+  padding-left: 10%;
+  padding-right: 10%;
+
+  header {
+    padding-top: 50px;
+    padding-bottom: 80px;
+
+    @include md {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-top: 60px;
+    }
+
+    @include xl {
+      padding-top: 100px;
+    }
+
+    > * {
+      flex-basis: 50%;
+    }
+
+    .home-header-content {
+      padding-top: 25px;
+      &-logo {
+        display: flex;
+        gap: 10px;
+
+        @include lg {
+          gap: 14px;
+        }
+
+        img {
+          width: 41px;
+
+          @include lg {
+            width: 58px;
+          }
+        }
+      }
+
+      &-title {
+        @include font-props(36, 700);
+        margin-top: 24px;
+        margin-bottom: 30px;
+        line-height: 49px;
+
+        span {
+          @include font-props(20, 400);
+
+          .bold {
+            font-weight: 700;
+          }
+        }
+
+        h1 > span {
+          display: inherit;
+        }
+
+        @include lg {
+          margin-bottom: 36px;
+        }
+
+        @include xxl {
+          @include font-props(66, 700);
+          margin-top: 50px;
+          margin-bottom: 50px;
+          line-height: 79px;
+
+          span {
+            @include font-props(34, 400);
+          }
+        }
+
+      }
+    }
+
+    .home-header-image {
+      background: $bg-linear-inverse;
+      margin-top: 75px;
+
+      @include md {
+        margin-top: 0;
+        padding-left: 10px;
+        padding-bottom: 5px;
+      }
+
+      img {
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(104, 104, 104, 0.16);
+      }
+    }
+  }
+
+}

@@ -4,7 +4,24 @@ html {
     font-family: $font-main;
 }
 
+body {
+    background-color: $bg-main;
+    color: $color-main;
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
+}
+
+.color-primary {
+    color: $color-primary;
+}
+
+.color-secondary {
+    color: $color-secondary;
+}
+
+.bold {
+    font-weight: 700;
 }

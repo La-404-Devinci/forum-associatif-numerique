@@ -12,8 +12,11 @@ $color-primary: #6758A2;
 
 // Backgrounds
 $bg-main: #1D1D1B;
-$bg-linear: linear-gradient(to right, $color-secondary 0, $color-primary 100%);
-$bg-linear-inverse: linear-gradient(to right, $color-primary 0, $color-secondary 100%);
+$bg-secondary: #87CCD3;
+$bg-primary: #6758A2;
+$bg-inverted: #ffffff;
+$bg-linear: linear-gradient(to right, $bg-secondary 0, $bg-primary 100%);
+$bg-linear-inverse: linear-gradient(to right, $bg-primary 0, $bg-secondary 100%);
 
 
 
