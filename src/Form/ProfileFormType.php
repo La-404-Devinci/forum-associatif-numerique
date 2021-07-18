@@ -20,6 +20,7 @@ class ProfileFormType extends AbstractType
             ->add('banner', TextType::class, ['label' => 'Bannière'])
             ->add('catchphrase', TextType::class, ['label' => 'Phrase d\'accroche'])
             ->add('description', TextType::class, ['label' => 'Description'])
+            ->add('video', TextType::class, ['label' => 'Vidéo'])
             ->add('profile_type', TextType::class, ['label' => 'Profil(s) recherché(s)'])
             ->add('Modifier', SubmitType::class, ['label' => 'Enregistrer les modifications'])
             ->add('Annuler', ResetType::class)
