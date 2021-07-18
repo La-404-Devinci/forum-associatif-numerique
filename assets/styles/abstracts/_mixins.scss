@@ -4,7 +4,7 @@
 */
 
 @mixin xs() {
-    @media screen and (max-width: cacl($w-sm -1px)) {
+    @media screen and (max-width: $w-sm - 1px) {
         @content;
     }
 }
