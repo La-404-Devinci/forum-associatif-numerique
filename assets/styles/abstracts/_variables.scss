@@ -5,11 +5,17 @@ $w-lg: 992px;
 $w-xl: 1200px;
 $w-xxl: 1400px;
 
-// Backgrounds
-$bg-main: #1D1D1B;
-
 // Colors
 $color-main: #ffffff;
+$color-secondary: #87CCD3;
+$color-primary: #6758A2;
+
+// Backgrounds
+$bg-main: #1D1D1B;
+$bg-linear: linear-gradient(to right, $color-secondary 0, $color-primary 100%);
+$bg-linear-inverse: linear-gradient(to right, $color-primary 0, $color-secondary 100%);
+
+
 
 // Font
 $font-main: 'Poppins', sans-serif;

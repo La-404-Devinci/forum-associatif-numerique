@@ -14,6 +14,7 @@ import AOS from "aos";
 import "@fortawesome/fontawesome-free";
 AOS.init();
 
+
 document.querySelector('#navigation-burger').addEventListener('click', function(){
     this.classList.toggle('active')
     document.querySelector('.navigation__main-menu-content').classList.toggle('active')

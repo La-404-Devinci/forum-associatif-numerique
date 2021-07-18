@@ -1,0 +1,16 @@
+.header-banner {
+  display: block;
+  text-align: center;
+  color: $color-main;
+  background:$bg-linear;
+  @include font-props(14, 700);
+  padding: 18px;
+
+  @include md {
+    @include font-props(18, 700);
+  }
+
+  i {
+    margin-left: 5px;
+  }
+}
