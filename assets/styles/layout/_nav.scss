@@ -1,9 +1,9 @@
 .navigation {
-
     position: sticky;
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 5;
     box-shadow: 0 4px 4px rgba(21,21,20,0.35);
 
     &__main-menu {

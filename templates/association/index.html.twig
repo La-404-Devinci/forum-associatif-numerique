@@ -88,6 +88,13 @@
             </div>
         </div>
     </section>
+    {% embed "components/cta-banner__cover.html.twig" with {'external': true} %}
+        {% block icone %}<i class="fab fa-discord"></i>{% endblock %}
+        {% block title %}Toute la journée{% endblock %}
+        {% block text %}Viens discuter avec les membres des associations sur Discord !{% endblock %}
+        {% block url %}discord.gg/X77ztWs{% endblock %}
+        {% block urltext %}discord.gg/X77ztWs{% endblock %}
+    {% endembed %}
     <section class="home-about">
         <div class="home-about__content">
             <div class="home-about__content-number">

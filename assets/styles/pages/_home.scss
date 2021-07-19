@@ -1,8 +1,6 @@
 .home {
-  padding-left: 10%;
-  padding-right: 10%;
-
   header {
+    @include pagespadding();
     padding-top: 50px;
     padding-bottom: 80px;
 
@@ -83,6 +81,7 @@
   }
 
   &-theme {
+    @include pagespadding();
     padding-top: 85px;
     padding-bottom: 150px;
     text-align: center;
@@ -166,7 +165,9 @@
   }
 
   &-about {
-    padding: 110px 0 200px 0;
+    @include pagespadding();
+    padding-top: 110px;
+    padding-bottom: 200px;
 
     &__img {
       @include image-border();

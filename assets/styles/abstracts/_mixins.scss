@@ -68,3 +68,16 @@
     }
 
 }
+
+/**
+*
+* Pages borderpadding
+* Usage @include pagespadding()
+*
+ */
+@mixin pagespadding() {
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
