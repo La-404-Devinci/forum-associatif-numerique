@@ -15,7 +15,11 @@ a {
 }
 
 h2 {
-    @include font-props(44,700);
+    @include font-props(28,700);
+
+    @include md {
+        @include font-props(44,700);
+    }
 }
 
 h2 + .subtitle {
