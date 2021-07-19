@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\CategoryRepository;
 
 class AssociationController extends AbstractController
 {
@@ -23,6 +24,7 @@ class AssociationController extends AbstractController
         $associations = $this->getDoctrine()
             ->getRepository(Association::class)
             ->findAll();
+
 
         // si il n'y en a pas alors on lance une erreur avec un message
         
@@ -66,24 +68,23 @@ class AssociationController extends AbstractController
 
 
     #[Route('/associations', name: 'associations')]
-    public function show(): Response
+    public function show(CategoryRepository $categoryRepository): Response
     {
         // récupérer les datas de la base de données
 
-        $associations = $this->getDoctrine()
-            ->getRepository(Association::class)
-            ->findAll();
+        $categories = $categoryRepository->findAll();
+
 
         // s'il n'y en a pas alors on lance une erreur avec un message
         
-        if(!$associations) {
+        if(!$categories) {
             throw $this->createNotFoundException("Pas d'association à afficher");
         }
 
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/show.html.twig', [
-            'associations' => $associations
+            'categories' => $categories
         ]);
     }
 

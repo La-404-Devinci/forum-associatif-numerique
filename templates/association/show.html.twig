@@ -6,10 +6,13 @@
 
 <h1>ICI LISTING ASSOS</h1>
 
-{% for association in associations %}
-    <a href="{{ path('association', {slug: association.slug}) }}">
-        <li>{{association.name}}</li>
-    </a>
+{% for category in categories %}
+<h3>{{category.name}}</h3>
+    {% for association in category.associations %}
+        <a href="{{ path('association', {slug: association.slug}) }}">
+            <li>{{association.name}}</li>
+        </a>
+    {% endfor %}
 {% endfor %}
 
 {% endblock %}
