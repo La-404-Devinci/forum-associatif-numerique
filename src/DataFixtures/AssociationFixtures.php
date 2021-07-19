@@ -27,12 +27,13 @@ class AssociationFixtures extends Fixture
         $association->setName('IIMPACT');
         $association->setPassword($password);
         $association->setRoles(['ROLE_USER']);
-        $association->setLogoColor('aled');
-        $association->setBanner('aled');
+        $association->setLogoColor('c\'est le logo');
+        $association->setBanner('c\'est la bannière');
         $association->setStatus('/');
-        $association->setCatchphrase('aled');
-        $association->setDescription('aled');
+        $association->setCatchphrase('c\'est la phrase d\'accroche');
+        $association->setDescription('c\'est la description');
         $association->setProfileType('MOTIVE ET DYNAMIQUE OUAIS');
+        $association->setVideo('c\'est la vidéo');
         $manager->persist($association);
 
         $manager->flush();
