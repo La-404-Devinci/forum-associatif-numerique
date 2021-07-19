@@ -6,6 +6,7 @@ use App\Entity\Association;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,7 +17,10 @@ class ProfileFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Nom de l\'association'])
-            ->add('logo', TextType::class, ['label' => 'Logo'])
+            ->add('logo', FileType::class, [
+                'mapped' => false,
+                'label' => 'Logo'
+            ])
             ->add('banner', TextType::class, ['label' => 'Bannière'])
             ->add('catchphrase', TextType::class, ['label' => 'Phrase d\'accroche'])
             ->add('description', TextType::class, ['label' => 'Description'])

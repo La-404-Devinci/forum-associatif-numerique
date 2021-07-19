@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\CategoryRepository;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AssociationController extends AbstractController
 {
@@ -42,7 +44,7 @@ class AssociationController extends AbstractController
     // -------------- PAGE PROFIL --------------
 
     #[Route('/profil', name: 'profil')]
-    public function editProfile(Request $request)
+    public function editProfile(Request $request, SluggerInterface $slugger)
     {
         $user = $this->getUser();
         $form = $this->createForm(ProfileFormType::class, $user);
@@ -50,6 +52,27 @@ class AssociationController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $brochureFile */
+            $logoFile =$form->get('logo')->getData();
+
+            if($logoFile) {
+                $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$logoFile->guessExtension();
+
+                try {
+                    $logoFile->move(
+                        $this->getParameter('logo_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
+
+                $user->setLogo($newFilename);
+            }
+            
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
