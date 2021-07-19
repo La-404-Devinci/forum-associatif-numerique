@@ -47,3 +47,24 @@
     font-size: #{$size}px;
     font-weight: $weight;
 }
+
+/**
+* Gradient border on image
+* Usage : @include image-border($width, $orientation)
+*/
+@mixin image-border($width: 5px, $orientation: "demi") {
+    background: $bg-linear-inverse;
+
+    @if($orientation == "all") {
+        padding: $width;
+    } @else {
+        padding-left: $width*2;
+        padding-bottom: $width;
+    }
+
+    > img {
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(104, 104, 104, 0.16);
+    }
+
+}
