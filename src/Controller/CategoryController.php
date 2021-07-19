@@ -30,7 +30,6 @@ class CategoryController extends AbstractController
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('category/filtered.html.twig', [
-            'controller_name' => 'AssociationController',
             'associations' => $associations,
             'category' => $category
         ]);

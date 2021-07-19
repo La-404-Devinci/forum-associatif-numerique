@@ -34,6 +34,12 @@ class AssociationFixtures extends Fixture
         $association->setDescription('c\'est la description');
         $association->setProfileType('MOTIVE ET DYNAMIQUE OUAIS');
         $association->setVideo('c\'est la vidéo');
+        $association->setFacebook('c\'est le facebook');
+        $association->setInstagram('c\'est le instagram');
+        $association->setTwitter('c\'est le twitter');
+        $association->setYoutube('c\'est le youtube');
+        $association->setTwitch('c\'est le twitch');
+        $association->setDiscord('c\'est le discord');
         $manager->persist($association);
 
         $manager->flush();
