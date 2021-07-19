@@ -27,7 +27,7 @@ class AssociationFixtures extends Fixture
         $association->setName('IIMPACT');
         $association->setPassword($password);
         $association->setRoles(['ROLE_USER']);
-        $association->setLogoColor('c\'est le logo');
+        $association->setLogo('c\'est le logo');
         $association->setBanner('c\'est la bannière');
         $association->setStatus('/');
         $association->setCatchphrase('c\'est la phrase d\'accroche');

@@ -217,12 +217,12 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getLogoColor(): ?string
+    public function getLogo(): ?string
     {
-        return $this->logo_color;
+        return $this->logo;
     }
 
-    public function setLogoColor(string $logo): self
+    public function setLogo(string $logo): self
     {
         $this->logo = $logo;
 
