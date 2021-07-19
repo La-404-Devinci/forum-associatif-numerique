@@ -40,7 +40,7 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="text")
      */
-    private $logo_color;
+    private $logo;
 
     /**
      * @ORM\Column(type="text")
@@ -82,6 +82,51 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="text")
      */
     private $video;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $facebook;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $instagram;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $twitter;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $youtube;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $twitch;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $discord;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $autre;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $form;
 
     public function getId(): ?int
     {
@@ -172,14 +217,14 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getLogoColor(): ?string
+    public function getLogo(): ?string
     {
-        return $this->logo_color;
+        return $this->logo;
     }
 
-    public function setLogoColor(string $logo_color): self
+    public function setLogo(string $logo): self
     {
-        $this->logo_color = $logo_color;
+        $this->logo = $logo;
 
         return $this;
     }
@@ -254,7 +299,7 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function setSlug(): self
     {
-        $this->slug = strtolower(str_replace("'",'',str_replace(' ', '-', $this->name)));
+        $this->slug = strtolower(str_replace('&','and',str_replace("'",'',str_replace(' ', '-', $this->name))));
 
         return $this;
     }
@@ -279,6 +324,114 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVideo(string $video): self
     {
         $this->video = $video;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getFacebook(): ?string
+    {
+        return $this->facebook;
+    }
+
+    public function setFacebook(?string $facebook): self
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    public function getInstagram(): ?string
+    {
+        return $this->instagram;
+    }
+
+    public function setInstagram(?string $instagram): self
+    {
+        $this->instagram = $instagram;
+
+        return $this;
+    }
+
+    public function getTwitter(): ?string
+    {
+        return $this->twitter;
+    }
+
+    public function setTwitter(?string $twitter): self
+    {
+        $this->twitter = $twitter;
+
+        return $this;
+    }
+
+    public function getYoutube(): ?string
+    {
+        return $this->youtube;
+    }
+
+    public function setYoutube(?string $youtube): self
+    {
+        $this->youtube = $youtube;
+
+        return $this;
+    }
+
+    public function getTwitch(): ?string
+    {
+        return $this->twitch;
+    }
+
+    public function setTwitch(?string $twitch): self
+    {
+        $this->twitch = $twitch;
+
+        return $this;
+    }
+
+    public function getDiscord(): ?string
+    {
+        return $this->discord;
+    }
+
+    public function setDiscord(?string $discord): self
+    {
+        $this->discord = $discord;
+
+        return $this;
+    }
+
+    public function getAutre(): ?string
+    {
+        return $this->autre;
+    }
+
+    public function setAutre(?string $autre): self
+    {
+        $this->autre = $autre;
+
+        return $this;
+    }
+
+    public function getForm(): ?string
+    {
+        return $this->form;
+    }
+
+    public function setForm(?string $form): self
+    {
+        $this->form = $form;
 
         return $this;
     }

@@ -16,7 +16,7 @@ class ProfileFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Nom de l\'association'])
-            ->add('logo_color', TextType::class, ['label' => 'Logo'])
+            ->add('logo', TextType::class, ['label' => 'Logo'])
             ->add('banner', TextType::class, ['label' => 'Bannière'])
             ->add('catchphrase', TextType::class, ['label' => 'Phrase d\'accroche'])
             ->add('description', TextType::class, ['label' => 'Description'])
