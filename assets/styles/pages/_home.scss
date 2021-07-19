@@ -38,7 +38,7 @@
         }
       }
 
-      &-title {
+      &-title h1 {
         @include font-props(36, 700);
         margin-top: 24px;
         margin-bottom: 30px;
