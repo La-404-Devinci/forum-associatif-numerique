@@ -52,8 +52,9 @@ class AssociationController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $brochureFile */
+            
             $logoFile =$form->get('logo')->getData();
+            $videoFile =$form->get('video')->getData();
 
             if($logoFile) {
                 $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -70,6 +71,23 @@ class AssociationController extends AbstractController
                 }
 
                 $user->setLogo($newFilename);
+            }
+
+            if($videoFile) {
+                $originalFilename = pathinfo($videoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$videoFile->guessExtension();
+
+                try {
+                    $videoFile->move(
+                        $this->getParameter('video_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
+
+                $user->setVideo($newFilename);
             }
             
 
