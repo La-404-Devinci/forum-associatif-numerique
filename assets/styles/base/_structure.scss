@@ -14,6 +14,14 @@ a {
     cursor: pointer;
 }
 
+h1 {
+    @include font-props(36,700);
+}
+
+h1 + .subtitle {
+    @include font-props(18,400);
+}
+
 h2 {
     @include font-props(28,700);
 
