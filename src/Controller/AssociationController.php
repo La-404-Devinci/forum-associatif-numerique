@@ -10,11 +10,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AssociationController extends AbstractController
 {
+
+    private $associationRepository;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->associationRepository = $em->getRepository(Association::class);
+    }
 
     // -------------- PAGE D'ACCUEIL --------------
     
@@ -23,9 +31,7 @@ class AssociationController extends AbstractController
     {
         // récupérer les datas de la base de données
 
-        $associations = $this->getDoctrine()
-            ->getRepository(Association::class)
-            ->findAll();
+        $associations = $this->associationRepository->findAll();
 
 
         // si il n'y en a pas alors on lance une erreur avec un message
@@ -52,8 +58,9 @@ class AssociationController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $brochureFile */
+            
             $logoFile =$form->get('logo')->getData();
+            $videoFile =$form->get('video')->getData();
 
             if($logoFile) {
                 $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -70,6 +77,23 @@ class AssociationController extends AbstractController
                 }
 
                 $user->setLogo($newFilename);
+            }
+
+            if($videoFile) {
+                $originalFilename = pathinfo($videoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$videoFile->guessExtension();
+
+                try {
+                    $videoFile->move(
+                        $this->getParameter('video_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
+
+                $user->setVideo($newFilename);
             }
             
 
