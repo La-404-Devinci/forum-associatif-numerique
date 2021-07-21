@@ -17,7 +17,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="{% block bodyclass %}{% endblock %}">
         {% include "layouts/navigation.html.twig" %}
         {% embed "components/header-banner.html.twig" with {'external': true} %}
             {% block link %}https://discord.gg{% endblock %}
