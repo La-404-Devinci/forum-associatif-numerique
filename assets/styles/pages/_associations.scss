@@ -1,0 +1,84 @@
+.associations {
+  @include pagespadding();
+  padding-top: 45px;
+  padding-bottom: 150px;
+
+  &-details {
+
+    &__item {
+      margin-top: 70px;
+      details {
+
+        margin-bottom: 75px;
+
+        a {
+          display: block;
+          margin-top: 20px;
+          @include font-props(18,700);
+
+          > span {
+            @include font-props(16,400);
+            font-style: italic;
+            color: $color-light-grey;
+            margin-left: 50px;
+          }
+        }
+
+        summary {
+          list-style: none;
+          @include font-props(24,700);
+          position: relative;
+          cursor: pointer;
+
+          > span {
+            margin-left: 40px;
+            padding: 0 30px;
+            background: $bg-main;
+
+            > span {
+              @include font-props(18,400);
+              font-style: italic;
+              padding-left: 30px;
+              color: $color-light-grey;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background: $bg-linear;
+            z-index: -1;
+          }
+
+          &::after {
+            font-family: "Font Awesome 5 Free";
+            @include font-props(35, 900);
+            content: "\f078";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            color: $color-main;
+            background: $bg-main;
+            padding-left: 30px;
+            display: inline-block;
+          }
+        }
+
+        &[open] {
+          summary::after {
+            content: "\f077";
+            //padding-left: 22px;
+          }
+        }
+      }
+
+    }
+
+  }
+}

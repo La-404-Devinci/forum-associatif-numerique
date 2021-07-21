@@ -10,13 +10,17 @@
     "base/structure";
 
 @import
-    "layout/nav";
+    "layout/nav",
+    "layout/footer";
 
 @import
     "components/header-banner",
-    "components/button-link";
+    "components/button-link",
+    "components/cta-banner";
 
 @import
-    "pages/home";
+    "pages/home",
+    "pages/associations",
+    "pages/associations-single";
 
 @import "shame";

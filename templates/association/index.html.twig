@@ -3,15 +3,6 @@
 {% block title %}Forum associatif - Pôle Universitaire Léonard de Vinci{% endblock %}
 
 {% block body %}
-
-<div class="a-degager">
-    <h1>les trucs de nico</h1>
-    <h1>ICI ACCUEIL</h1>
-
-    <a href="categories/informatique">Informatique</a>
-    <a href="categories/sport">Sport</a>
-    <a href="categories/musique">Musique</a>
-</div>
 <main class="home" id="home">
     <header>
         <div class="home-header-content">
@@ -35,6 +26,121 @@
                 <img src="{{ asset('build/images/home-header.png') }}" alt="Associations pôle universitaire Léonard de Vinci">
         </div>
     </header>
+    <section class="home-theme">
+        <h2>Des associations aux <span class="color-secondary">thématiques variées</span></h2>
+        <p class="subtitle">Par passion, par curiosité, une catégorie te correspond forcément&nbsp;!</p>
+        <div class="home-theme__cat">
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/bde.png') }}" alt="Icone BDE">
+                    <p>BDE & Clubs écoles</p>
+                    <p>Fait vibrer les étudiants et rythme ton école&nbsp;!</p>
+                    <a href="/categories/bde-&-clubs-ecoles" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/engagement.png') }}" alt="Icone Engagement">
+                    <p>Engagement</p>
+                    <p>Rend le monde meilleur et aide ceux qui peuvent l’être</p>
+                    <a href="/categories/engagement" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/business.png') }}" alt="Icone Business">
+                    <p>Business</p>
+                    <p>Valorise ton profil professionnel grâce à la vie étudiante&nbsp;!</p>
+                    <a href="/categories/business" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/technologie.png') }}" alt="Icone Technologie">
+                    <p>Technologie</p>
+                    <p>Tu es bricoleur, fan d’aviation ou d’automobile&nbsp;?</p>
+                    <a href="/categories/technologies" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/multimedia.png') }}" alt="Icone Multimédia">
+                    <p>Multimédia</p>
+                    <p>Le coin des passionnés : photos, esport, jeux vidéo&nbsp;!</p>
+                    <a href="/categories/multimedia" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/sport.png') }}" alt="Icone Sports">
+                    <p>Sports</p>
+                    <p>Tout seul on va vite, ensemble on va plus loin</p>
+                    <a href="/categories/sports" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+            <div class="home-theme__cat-card">
+                <div>
+                    <img src="{{ asset('build/images/icones/art.png') }}" alt="Icone Art & Culture">
+                    <p>Art & Culture</p>
+                    <p>Tu aimes le dessin, le théâtre ou la musique&nbsp;?</p>
+                   <a href="/categories/art-&-culture" class="button-link small">Découvrir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% embed "components/cta-banner__cover.html.twig" with {'external': true} %}
+        {% block icone %}<i class="fab fa-discord"></i>{% endblock %}
+        {% block title %}Toute la journée{% endblock %}
+        {% block text %}Viens discuter avec les membres des associations sur Discord !{% endblock %}
+        {% block url %}discord.gg/X77ztWs{% endblock %}
+        {% block urltext %}discord.gg/X77ztWs{% endblock %}
+    {% endembed %}
+    <section class="home-about">
+        <div class="home-about__content">
+            <div class="home-about__content-number">
+                <p>7000</p>
+                <p>étudiants</p>
+            </div>
+            <div class="home-about__content-text">
+                <p>Le pôle Léonard de Vinci, est composé de 3 écoles (ESILV, EMLV et IIM), regroupant plus de 7 500 étudiants ! Comme ça fait un bon paquet de monde, et que c’est cool de rencontrer des gens quand même, la transversalité entre les écoles est hyper présente : semaines transverses, sport obligatoire, et on y vient, le meilleur… les assos !</p>
+            </div>
+        </div>
+        <div class="home-about__content">
+            <div class="home-about__content-number">
+                <p>58</p>
+                <p>associations</p>
+            </div>
+            <div class="home-about__content-text">
+                <p>Les assos, c’est clairement le moyen le plus simple et sympa de te faire des potes. Actuellement, il y a pas moins de 54 assos ! Il y a du sport, du gaming, de l’événementiel, du théâtre, de la cuisine, de l’aquaponey. Bref t’as vraiment moyen de trouver ton bonheur!
+                </p>
+            </div>
+        </div>
+        <div class="home-about__img">
+            <img src="{{ asset('build/images/home-wide.png') }}" alt="Image associations">
+        </div>
+        <div class="home-about__content">
+            <div class="home-about__content-number">
+                <p>58k</p>
+                <p>m2 de locaux</p>
+            </div>
+            <div class="home-about__content-text">
+                <p>Tu vas donc pouvoir te réunir avec des gens qui ont les mêmes centres d’intérêt que toi, vous allez organiser des événements de plus ou moins grande envergure (voyages / compétition / rencontres à thèmatique). Et puis si t’es actif t’as des points bonus pour compenser tes cours mais ça faut pas dire…
+                </p>
+            </div>
+
+        </div>
+        <div class="home-about__content">
+            <div class="home-about__content-number">
+                <p>300</p>
+                <p>partenaires</p>
+            </div>
+            <div class="home-about__content-text">
+                <p>Et donc pour faire tourner toutes ces assos, on a besoin de TOI ! Rejoins-nous dans cette aventure de malade, tu vas apprendre à gérer une équipe, démarcher des entreprises, organiser des événements, et évidemment découvrir des personnes incroyables qui vont devenir ta famille.
+                </p>
+            </div>
+
+        </div>
+    </section>
 </main>
 
 {% endblock %}

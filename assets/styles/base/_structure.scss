@@ -14,6 +14,27 @@ a {
     cursor: pointer;
 }
 
+h1 {
+    @include font-props(36,700);
+}
+
+h1 + .subtitle {
+    @include font-props(18,400);
+}
+
+h2 {
+    @include font-props(28,700);
+
+    @include md {
+        @include font-props(44,700);
+    }
+}
+
+h2 + .subtitle {
+    @include font-props(25,400);
+    margin-top: 20px;
+}
+
 .color-primary {
     color: $color-primary;
 }
@@ -24,4 +45,8 @@ a {
 
 .bold {
     font-weight: 700;
+}
+
+video {
+    width: 100%;
 }

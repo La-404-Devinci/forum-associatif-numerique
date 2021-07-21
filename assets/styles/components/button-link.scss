@@ -32,5 +32,21 @@
     }
   }
 
+  &.small {
+    padding: 16px 40px;
+    @include font-props(20, 700);
+    border-radius: 6px;
+
+    @include md {
+      @include font-props(18, 700);
+      padding: 6px 24px;
+    }
+
+    @include xl {
+      @include font-props(22, 700);
+      width: 90%;
+      padding: 10px 34px;
+    }
+  }
 
 }

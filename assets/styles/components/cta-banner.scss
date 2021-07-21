@@ -1,0 +1,105 @@
+.cta-banner {
+  background-color: $bg-primary;
+  padding-left: 3%;
+  padding-right: 3%;
+  @include md {
+    @include pagespadding();
+  }
+
+  &__cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    @include md {
+      flex-wrap: nowrap;
+    }
+
+    div:first-child {
+      width: 80%;
+      text-align: center;
+      overflow: hidden;
+
+      @include md {
+        width: 30%;
+        overflow: initial;
+      }
+
+      @include lg {
+        overflow: hidden;
+      }
+
+      @include xl {
+        width: 40%;
+      }
+
+      i {
+        font-size: 100px;
+        transform: rotate(-25deg);
+        transform-origin: center;
+
+        @include md {
+          font-size: 130px;
+        }
+
+        @include lg {
+          font-size: 230px;
+        }
+
+        @include xl {
+          font-size: 300px;
+        }
+      }
+    }
+
+    div:last-child {
+      width: 70%;
+
+      @include md {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      @include xl {
+        width: 50%;
+      }
+    }
+
+    p {
+      @include font-props(14,500);
+      text-align: center;
+      &:not(:first-of-type) {
+        margin-bottom: 30px;
+      }
+
+      @include md {
+        @include font-props(18,500);
+        text-align: left;
+      }
+    }
+
+    .title {
+      @include font-props(18,700);
+      @include md {
+        @include font-props(36,700);
+      }
+    }
+
+    a {
+      @include font-props(18,700);
+      text-align: center;
+      padding-bottom: 20px;
+      @include md {
+        @include font-props(24,700);
+        text-align: left;
+        padding-bottom: 0;
+      }
+      display: block;
+      i {
+        margin-left: 10px;
+      }
+    }
+  }
+}
