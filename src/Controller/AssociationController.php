@@ -71,7 +71,7 @@ class AssociationController extends AbstractController
 
                 try {
                     $logoFile->move(
-                        $this->getParameter('logos_directory'),
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/logo",
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -88,7 +88,7 @@ class AssociationController extends AbstractController
 
                 try {
                     $videoFile->move(
-                        $this->getParameter('videos_directory'),
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/video",
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -105,7 +105,7 @@ class AssociationController extends AbstractController
 
                 try {
                     $imageFile->move(
-                        $this->getParameter('galeries_directory') . '/' . $user->getSlug(),
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images",
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -164,7 +164,7 @@ class AssociationController extends AbstractController
             throw $this->createNotFoundException("Pas d'association à afficher");
         } else {
             $finder = new Finder();
-            $finder->files()->in(__DIR__.'/../../public/uploads/test-asso/galerie');
+            $finder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/images');
             $galerie = [];
             foreach ($finder as $file) {
                 array_push($galerie, $file->getRelativePathname());

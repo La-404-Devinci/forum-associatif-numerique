@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="content">
-                <p>{{association.profile_type | nl2br}}</p>
+                <p>{{association.profiletype | nl2br}}</p>
             </div>
         </div>
         <div class="associations-single__bloc">
@@ -86,7 +86,7 @@
             <div class="content galerie">
                 {% for image in images %}
                     <div class="galerie-image">
-                        <img src="{{ asset('uploads/test-asso/galerie/' ~ image ~ '') }}" alt="Galerie - Image {{ association.name }}">
+                        <img src="{{ asset('uploads/' ~ association.slug ~ '/images/' ~ image ~ '') }}" alt="Galerie - Image {{ association.name }}">
                     </div>
                 {% endfor %}
             </div>

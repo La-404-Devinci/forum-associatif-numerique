@@ -283,12 +283,12 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getProfile_type(): ?string
+    public function getProfileType(): ?string
     {
         return $this->profile_type;
     }
 
-    public function setProfile_type(?string $profile_type): self
+    public function setProfileType(?string $profile_type): self
     {
         $this->profile_type = $profile_type;
 
