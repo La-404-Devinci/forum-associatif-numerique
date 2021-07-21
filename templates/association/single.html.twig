@@ -17,6 +17,8 @@
         </div>
     </header>
     <main>
+        {{ dump(association) }}
+        {{ dump(app.filesystem.browse('uploads/test-asso/galerie')[0]) }}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -36,7 +38,9 @@
                 </div>
             </div>
             <div class="content">
-                <p>{{association.description}}</p>
+                <video controls>
+                    <source src="{{ asset('uploads/' ~ association.video ~ '') }}" type="video/mp4">
+                </video>
             </div>
         </div>
         <div class="associations-single__bloc">
@@ -47,7 +51,7 @@
                 </div>
             </div>
             <div class="content">
-                <p>{{association.description}}</p>
+                <p>Y'a pas la colonne en DB issou</p>
             </div>
         </div>
         <div class="associations-single__bloc">
@@ -58,7 +62,7 @@
                 </div>
             </div>
             <div class="content">
-                <p>{{association.description}}</p>
+                <p>{{association.profile_type | nl2br}}</p>
             </div>
         </div>
         <div class="associations-single__bloc">
