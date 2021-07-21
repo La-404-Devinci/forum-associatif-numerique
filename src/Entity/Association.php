@@ -129,6 +129,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $form;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $projects;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -433,6 +438,18 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setForm(?string $form): self
     {
         $this->form = $form;
+
+        return $this;
+    }
+
+    public function getProjects(): ?string
+    {
+        return $this->projects;
+    }
+
+    public function setProjects(string $projects): self
+    {
+        $this->projects = $projects;
 
         return $this;
     }
