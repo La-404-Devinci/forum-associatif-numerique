@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Association;
 use App\Form\ProfileFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -145,12 +146,20 @@ class AssociationController extends AbstractController
         
         if(!$association) {
             throw $this->createNotFoundException("Pas d'association à afficher");
+        } else {
+            $finder = new Finder();
+            $finder->files()->in(__DIR__.'/../../public/uploads/test-asso/galerie');
+            $galerie = [];
+            foreach ($finder as $file) {
+                array_push($galerie, $file->getRelativePathname());
+            }
         }
 
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/single.html.twig', [
-            'association' => $association
+            'association' => $association,
+            'images' => $galerie
         ]);
     }
 

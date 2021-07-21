@@ -12,6 +12,9 @@ import './styles/app.scss';
 import './bootstrap';
 import AOS from "aos";
 import "@fortawesome/fontawesome-free";
+import Isotope from 'isotope-layout';
+import ImagesLoaded from 'imagesloaded';
+
 AOS.init();
 
 
@@ -37,3 +40,18 @@ document.querySelector('#navigation-burger').addEventListener('click', function(
         }
     })
 }*/
+if(document.querySelector('.associations-single .galerie') != null) {
+    var grid = document.querySelector('.associations-single .galerie');
+    ImagesLoaded(grid, function () {
+        new Isotope( grid, {
+            itemSelector: '.galerie-image',
+            percentPosition: true,
+
+            masonry: {
+                gutter: 15
+            }
+        })
+    })
+}
+
+
