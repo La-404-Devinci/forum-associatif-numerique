@@ -34,8 +34,8 @@ class ProfileFormType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image pour galerie',
                 'mapped' => false,
-                'required' => false
-                ])
+                'required' => false,
+            ])
             ->add('profile_type', TextType::class, ['label' => 'Profil(s) recherché(s)'])
             ->add('Modifier', SubmitType::class, ['label' => 'Enregistrer les modifications'])
             ->add('Annuler', ResetType::class)
