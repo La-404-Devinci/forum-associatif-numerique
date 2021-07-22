@@ -62,6 +62,7 @@ class AssociationController extends AbstractController
             
             $logoFile =$form->get('logo')->getData();
             $videoFile =$form->get('video')->getData();
+            $imageFile =$form->get('image')->getData();
 
             if($logoFile) {
                 $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -70,7 +71,7 @@ class AssociationController extends AbstractController
 
                 try {
                     $logoFile->move(
-                        $this->getParameter('logo_directory'),
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/logo",
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -87,7 +88,7 @@ class AssociationController extends AbstractController
 
                 try {
                     $videoFile->move(
-                        $this->getParameter('video_directory'),
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/video",
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -95,6 +96,21 @@ class AssociationController extends AbstractController
                 }
 
                 $user->setVideo($newFilename);
+            }
+
+            if($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images",
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
             }
             
 
@@ -148,7 +164,7 @@ class AssociationController extends AbstractController
             throw $this->createNotFoundException("Pas d'association à afficher");
         } else {
             $finder = new Finder();
-            $finder->files()->in(__DIR__.'/../../public/uploads/test-asso/galerie');
+            $finder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/images');
             $galerie = [];
             foreach ($finder as $file) {
                 array_push($galerie, $file->getRelativePathname());
