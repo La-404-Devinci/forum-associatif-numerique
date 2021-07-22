@@ -100,17 +100,19 @@ class AssociationController extends AbstractController
             }
 
             if($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                foreach($imageFile as $if) {
+                    $originalFilename = pathinfo($if->getClientOriginalName(), PATHINFO_FILENAME);
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$if->guessExtension();
 
-                try {
-                    $imageFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images",
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-
+                    try {
+                        $if->move(
+                            $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images",
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+    
+                    }
                 }
             }
 
