@@ -23,7 +23,11 @@ class ProfileFormType extends AbstractType
                 'label' => 'Logo',
                 'required' => false
             ])
-            ->add('banner', TextType::class, ['label' => 'Bannière'])
+            ->add('banner', FileType::class, [
+                'label' => 'Bannière',
+                'mapped' => false,
+                'required' => false,
+            ])
             ->add('catchphrase', TextType::class, ['label' => 'Phrase d\'accroche'])
             ->add('description', TextType::class, ['label' => 'Description'])
             ->add('video', FileType::class, [
@@ -35,6 +39,7 @@ class ProfileFormType extends AbstractType
                 'label' => 'Image pour galerie',
                 'mapped' => false,
                 'required' => false,
+                'multiple' => 'multiple'
             ])
             ->add('profile_type', TextType::class, ['label' => 'Profil(s) recherché(s)'])
             ->add('Modifier', SubmitType::class, ['label' => 'Enregistrer les modifications'])

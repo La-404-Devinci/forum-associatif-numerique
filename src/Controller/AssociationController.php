@@ -63,6 +63,7 @@ class AssociationController extends AbstractController
             $logoFile =$form->get('logo')->getData();
             $videoFile =$form->get('video')->getData();
             $imageFile =$form->get('image')->getData();
+            $bannerFile =$form->get('banner')->getData();
 
             if($logoFile) {
                 $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -99,18 +100,37 @@ class AssociationController extends AbstractController
             }
 
             if($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                foreach($imageFile as $if) {
+                    $originalFilename = pathinfo($if->getClientOriginalName(), PATHINFO_FILENAME);
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$if->guessExtension();
+
+                    try {
+                        $if->move(
+                            $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images",
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+    
+                    }
+                }
+            }
+
+            if($bannerFile) {
+                $originalFilename = pathinfo($bannerFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$bannerFile->guessExtension();
 
                 try {
-                    $imageFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images",
+                    $bannerFile->move(
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/banners",
                         $newFilename
                     );
                 } catch (FileException $e) {
 
                 }
+
+                $user->setBanner($newFilename);
             }
             
 
