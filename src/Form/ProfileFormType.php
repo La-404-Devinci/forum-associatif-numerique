@@ -23,7 +23,11 @@ class ProfileFormType extends AbstractType
                 'label' => 'Logo',
                 'required' => false
             ])
-            ->add('banner', TextType::class, ['label' => 'Bannière'])
+            ->add('banner', FileType::class, [
+                'label' => 'Bannière',
+                'mapped' => false,
+                'required' => false,
+            ])
             ->add('catchphrase', TextType::class, ['label' => 'Phrase d\'accroche'])
             ->add('description', TextType::class, ['label' => 'Description'])
             ->add('video', FileType::class, [
