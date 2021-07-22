@@ -9,16 +9,15 @@
             <div>
                 <h1>{{association.name}}</h1>
                 <p class="subtitle">{{association.catchphrase}}</p>
-                <p class="category">Catégorie (non dynamique)</p>
+                <p class="category">{{association.status}}</p>
             </div>
             <div>
-                <img src="{{ asset('uploads/' ~ association.logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
+                <img src="{{ asset('uploads/' ~ association.slug ~ '/logo/' ~ logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
             </div>
         </div>
     </header>
     <main>
         {{ dump(association) }}
-        {{ dump(images) }}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -39,7 +38,7 @@
             </div>
             <div class="content">
                 <video controls>
-                    <source src="{{ asset('uploads/' ~ association.video ~ '') }}" type="video/mp4">
+                    <source src="{{ asset('uploads/' ~ association.slug ~ '/logo/' ~ video ~ '') }}" type="video/mp4">
                 </video>
             </div>
         </div>
