@@ -78,8 +78,6 @@ class AssociationController extends AbstractController
                 } catch (FileException $e) {
 
                 }
-
-                $user->setLogo($newFilename);
             }
 
             if($videoFile) {
@@ -95,8 +93,6 @@ class AssociationController extends AbstractController
                 } catch (FileException $e) {
 
                 }
-
-                $user->setVideo($newFilename);
             }
 
             if($imageFile) {
@@ -129,8 +125,6 @@ class AssociationController extends AbstractController
                 } catch (FileException $e) {
 
                 }
-
-                $user->setBanner($newFilename);
             }
             
 
