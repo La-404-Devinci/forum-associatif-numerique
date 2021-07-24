@@ -48,6 +48,13 @@ class AssociationController extends AbstractController
         ]);
     }
 
+    // -------------- ACCUEIL ADMIN --------------
+
+    #[Route('/admin', name: 'admin')]
+    public function accueilAdmin() {
+        return $this->render('admin/accueil.html.twig');
+    }
+
     // -------------- PAGE PROFIL --------------
 
     #[Route('/profil', name: 'profil')]

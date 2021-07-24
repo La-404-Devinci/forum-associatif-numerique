@@ -11,23 +11,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Roles</th>
-                <th>Password</th>
-                <th>Logo</th>
-                <th>Status</th>
-                <th>Catchphrase</th>
-                <th>Description</th>
-                <th>Profile_type</th>
                 <th>Slug</th>
-                <th>Email</th>
-                <th>Facebook</th>
-                <th>Instagram</th>
-                <th>Twitter</th>
-                <th>Youtube</th>
-                <th>Twitch</th>
-                <th>Discord</th>
-                <th>Autre</th>
-                <th>Form</th>
-                <th>Projects</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -37,23 +21,7 @@
                 <td>{{ association.id }}</td>
                 <td>{{ association.name }}</td>
                 <td>{{ association.roles ? association.roles|json_encode : '' }}</td>
-                <td>{{ association.password }}</td>
-                <td>{{ association.logo }}</td>
-                <td>{{ association.status }}</td>
-                <td>{{ association.catchphrase }}</td>
-                <td>{{ association.description }}</td>
-                <td>{{ association.profileType }}</td>
                 <td>{{ association.slug }}</td>
-                <td>{{ association.email }}</td>
-                <td>{{ association.facebook }}</td>
-                <td>{{ association.instagram }}</td>
-                <td>{{ association.twitter }}</td>
-                <td>{{ association.youtube }}</td>
-                <td>{{ association.twitch }}</td>
-                <td>{{ association.discord }}</td>
-                <td>{{ association.autre }}</td>
-                <td>{{ association.form }}</td>
-                <td>{{ association.projects }}</td>
                 <td>
                     <a href="{{ path('admin_association_show', {'id': association.id}) }}">show</a>
                     <a href="{{ path('admin_association_edit', {'id': association.id}) }}">edit</a>
