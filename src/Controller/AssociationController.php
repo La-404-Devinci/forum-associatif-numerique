@@ -203,6 +203,12 @@ class AssociationController extends AbstractController
                 $video =  $file->getRelativePathname();
             }
 
+            $bannerFinder = new Finder();
+            $bannerFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/banners');
+            foreach ($bannerFinder as $file) {
+                $banner =  $file->getRelativePathname();
+            }
+
         }
 
         // on retourne ces datas dans la vue correspondante
@@ -211,7 +217,8 @@ class AssociationController extends AbstractController
             'association' => $association,
             'images' => $galerie,
             'logo' => $logo,
-            'video' => $video
+            'video' => $video,
+            'banner' => $banner
         ]);
     }
 
