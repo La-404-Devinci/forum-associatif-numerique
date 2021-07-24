@@ -1,4 +1,5 @@
 <footer>
+    {% if app.request.get('_route') != 'profil' %}
     <div class="pre-footer">
         <h2>Un forum créé par des étudiants
             pour des étudiants</h2>
@@ -21,6 +22,7 @@
 
         </div>
     </div>
+    {% endif %}
     <div class="footer">
         <ul>
             <li>© {{ "now"|date("Y") }} La 404 Devinci, all rights reserved</li>
