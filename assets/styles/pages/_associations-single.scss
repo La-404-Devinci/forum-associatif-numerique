@@ -116,7 +116,44 @@
             }
           }
 
+        }
 
+        &.social-links {
+
+            i {
+              color: $color-secondary;
+              @include font-props(50,900);
+              margin-right: 30px;
+            }
+
+            a {
+              display: flex;
+              align-items: center;
+              color: $color-main;
+              @include font-props(18,500);
+              margin-bottom: 50px;
+              transition: all 0.4s;
+
+              &:hover {
+                color: $color-secondary;
+              }
+            }
+
+            .links {
+              display: flex;
+              align-items: center;
+              a {
+                margin-bottom: 15px;
+              }
+            }
+
+            @include xl {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              grid-template-rows: repeat(4, auto);
+              grid-auto-flow: column;
+
+            }
 
         }
       }

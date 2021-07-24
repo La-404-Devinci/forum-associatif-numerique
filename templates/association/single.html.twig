@@ -4,19 +4,32 @@
 {% block bodyclass %}associations-single{% endblock %}
 {% block body %}
     <header>
-        <img src="{{ asset('uploads/' ~ association.slug ~ '/banners/' ~ banner ~ '') }}" alt="Bannière de présentation de {{ association.name }}">
+        {% if banner != 'default' %}
+            <img src="{{ asset('uploads/' ~ association.slug ~ '/banners/' ~ banner ~ '') }}" alt="Bannière de présentation de {{ association.name }}">
+        {% else %}
+            <img src="{{ asset('build/images/default/banner-default.png') }}" alt="Bannière de présentation par défaut">
+        {% endif %}
         <div class="associations-single__title">
             <div>
                 <h1>{{association.name}}</h1>
-                <p class="subtitle">{{association.catchphrase}}</p>
-                <p class="category">{{association.status}}</p>
+                {% if association.catchphrase is not empty %}
+                    <p class="subtitle">{{association.catchphrase}}</p>
+                {% endif %}
+                {% if association.status is not empty %}
+                    <p class="category">{{association.status}}</p>
+                {% endif %}
             </div>
             <div>
-                <img src="{{ asset('uploads/' ~ association.slug ~ '/logo/' ~ logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
+                {% if logo != 'default' %}
+                    <img src="{{ asset('uploads/' ~ association.slug ~ '/logo/' ~ logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
+                {% else %}
+                    <img src="{{ asset('build/images/default/logo-default.png') }}" alt="Bannière de présentation par défaut">
+                {% endif %}
             </div>
         </div>
     </header>
     <main>
+        {% if association.description is not empty %}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -28,6 +41,8 @@
                 <p>{{association.description}}</p>
             </div>
         </div>
+        {% endif %}
+        {% if video != 'empty' %}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -41,6 +56,8 @@
                 </video>
             </div>
         </div>
+        {% endif %}
+        {% if association.projects is not empty %}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -52,6 +69,8 @@
                 <p>{{association.projects | nl2br}}</p>
             </div>
         </div>
+        {% endif %}
+        {% if association.profiletype is not empty %}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -63,17 +82,46 @@
                 <p>{{association.profiletype | nl2br}}</p>
             </div>
         </div>
-        <!--<div class="associations-single__bloc">
+        {% endif %}
+        {% if association.email is not empty %}
+        <div class="associations-single__bloc">
             <div class="info">
                 <div>
                     <i class="fas fa-comments"></i>
                     <p>Prend contact avec nous</p>
                 </div>
             </div>
-            <div class="content">
-                
+            <div class="content social-links">
+                <a href="mailto:{{ association.email }}"><i class="fas fa-envelope"></i> {{ association.email }}</a>
+                {% if association.facebook is not empty %}
+                    <a href="{{ association.facebook }}"><i class="fab fa-facebook-square"></i> Facebook</a>
+                {% endif %}
+                {% if association.instagram is not empty %}
+                    <a href="{{ association.instagram }}"><i class="fab fa-instagram-square"></i> Instagram</a>
+                {% endif %}
+                {% if association.discord is not empty %}
+                    <a href="{{ association.discord }}"><i class="fab fa-discord"></i> Discord</a>
+                {% endif %}
+                {% if association.youtube is not empty %}
+                    <a href="{{ association.youtube }}"><i class="fab fa-youtube-square"></i> Youtube</a>
+                {% endif %}
+                {% if association.twitch is not empty %}
+                    <a href="{{ association.twitch }}"><i class="fab fa-twitch"></i> Twitch</a>
+                {% endif %}
+                {% if links != 'empty' %}
+                    <div class="links">
+                        <i class="fas fa-search-plus"></i>
+                        <div>
+                            {% for link in links %}
+                                <a href="{{ link }}">{{ link }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
             </div>
-        </div>-->
+        </div>
+        {% endif %}
+        {% if images != 'empty' %}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -89,5 +137,6 @@
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
     </main>
 {% endblock %}

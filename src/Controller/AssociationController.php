@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Association;
 use App\Form\ProfileFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -183,33 +184,64 @@ class AssociationController extends AbstractController
         if(!$association) {
             throw $this->createNotFoundException("Pas d'association à afficher");
         } else {
-            $galerieFinder = new Finder();
-            $galerieFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/images');
-            $galerie = [];
-            foreach ($galerieFinder as $file) {
-                array_push($galerie, $file->getRelativePathname());
+
+            $filesystem = new Filesystem();
+
+            // Inject images gallery to twig
+            $galerie = 'empty';
+            if($filesystem->exists(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/images')) {
+
+                $galerieFinder = new Finder();
+                $galerieFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/images');
+                if($galerieFinder->hasResults()) {
+                    $galerie = [];
+                    foreach ($galerieFinder as $file) {
+                        array_push($galerie, $file->getRelativePathname());
+                    }
+                }
             }
 
-            $logoFinder = new Finder();
-            $logoFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logo');
-            foreach ($logoFinder as $file) {
-                $logo =  $file->getRelativePathname();
+            // Inject logo to twig
+            $logo = 'default';
+            if($filesystem->exists(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logo')) {
+                $logoFinder = new Finder();
+                $logoFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logo');
+                foreach ($logoFinder as $file) {
+                    $logo =  $file->getRelativePathname();
+                }
             }
 
 
-            $videoFinder = new Finder();
-            $videoFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/videos');
-            foreach ($videoFinder as $file) {
-                $video =  $file->getRelativePathname();
+
+            // Inject video to twig
+            $video = 'empty';
+            if($filesystem->exists(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/videos')) {
+                $videoFinder = new Finder();
+                $videoFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/videos');
+                foreach ($videoFinder as $file) {
+                    $video =  $file->getRelativePathname();
+                }
             }
 
-            $bannerFinder = new Finder();
-            $bannerFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/banners');
-            foreach ($bannerFinder as $file) {
-                $banner =  $file->getRelativePathname();
+
+            // Inject banner to twig
+            $banner = 'default';
+            if($filesystem->exists(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/banners')) {
+                $bannerFinder = new Finder();
+                $bannerFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/banners');
+                foreach ($bannerFinder as $file) {
+                    $banner =  $file->getRelativePathname();
+                }
             }
 
         }
+
+        $links = 'empty';
+        if(!empty($association->getAutre())) {
+            $bonusLinks = explode(',', $association->getAutre());
+            $links = array_map('trim', $bonusLinks);
+        }
+
 
         // on retourne ces datas dans la vue correspondante
 
@@ -218,7 +250,8 @@ class AssociationController extends AbstractController
             'images' => $galerie,
             'logo' => $logo,
             'video' => $video,
-            'banner' => $banner
+            'banner' => $banner,
+            'links' => $links
         ]);
     }
 

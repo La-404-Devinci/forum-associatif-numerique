@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -62,27 +63,33 @@ class ProfileFormType extends AbstractType
                 'label' => 'Adresse Email',
                 'required' => true
             ])
-            ->add('instagram', TextType::class, [
+            ->add('instagram', UrlType::class, [
+                'default_protocol' => 'https',
                 'label' => 'Instagram',
                 'required' => false
             ])
-            ->add('twitter', TextType::class, [
+            ->add('twitter', UrlType::class, [
+                'default_protocol' => 'https',
                 'label' => 'Twitter',
                 'required' => false
             ])
-            ->add('youtube', TextType::class, [
+            ->add('youtube', UrlType::class, [
+                'default_protocol' => 'https',
                 'label' => 'Youtube',
                 'required' => false
             ])
-            ->add('twitch', TextType::class, [
+            ->add('twitch', UrlType::class, [
+                'default_protocol' => 'https',
                 'label' => 'Twitch',
                 'required' => false
             ])
-            ->add('discord', TextType::class, [
+            ->add('discord', UrlType::class, [
+                'default_protocol' => 'https',
                 'label' => 'Discord',
                 'required' => false
             ])
-            ->add('facebook', TextType::class, [
+            ->add('facebook', UrlType::class, [
+                'default_protocol' => 'https',
                 'label' => 'Facebook',
                 'required' => false
             ])
