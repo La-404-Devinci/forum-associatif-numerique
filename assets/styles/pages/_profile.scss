@@ -91,16 +91,24 @@
 
     .form-submit {
 
+      @include md {
+        display: flex;
+        gap: 50px;
+      }
 
-      display: flex;
-      gap: 50px;
 
       button {
-        @include font-props(20,700);
+        @include font-props(16,700);
         padding: 15px 45px;
         background: #464646;
         border-radius: 6px;
         transition: all 0.6s;
+        margin-bottom: 15px;
+
+        @include md {
+          margin-bottom: 0;
+          @include font-props(20,700);
+        }
 
 
         &[type=submit] {
