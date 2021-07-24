@@ -49,6 +49,13 @@ class AssociationController extends AbstractController
         ]);
     }
 
+    // -------------- ACCUEIL ADMIN --------------
+
+    #[Route('/admin', name: 'admin')]
+    public function accueilAdmin() {
+        return $this->render('admin/accueil.html.twig');
+    }
+
     // -------------- PAGE PROFIL --------------
 
     #[Route('/profil', name: 'profil')]
@@ -73,14 +80,12 @@ class AssociationController extends AbstractController
 
                 try {
                     $logoFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/logo",
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/logos",
                         $newFilename
                     );
                 } catch (FileException $e) {
 
                 }
-
-                $user->setLogo($newFilename);
             }
 
             if($videoFile) {
@@ -90,14 +95,12 @@ class AssociationController extends AbstractController
 
                 try {
                     $videoFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/video",
+                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/videos",
                         $newFilename
                     );
                 } catch (FileException $e) {
 
                 }
-
-                $user->setVideo($newFilename);
             }
 
             if($imageFile) {
@@ -130,8 +133,6 @@ class AssociationController extends AbstractController
                 } catch (FileException $e) {
 
                 }
-
-                $user->setBanner($newFilename);
             }
             
 
@@ -203,9 +204,9 @@ class AssociationController extends AbstractController
 
             // Inject logo to twig
             $logo = 'default';
-            if($filesystem->exists(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logo')) {
+            if($filesystem->exists(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logos')) {
                 $logoFinder = new Finder();
-                $logoFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logo');
+                $logoFinder->files()->in(__DIR__.'/../../public/uploads/' . $association->getSlug() . '/logos');
                 foreach ($logoFinder as $file) {
                     $logo =  $file->getRelativePathname();
                 }

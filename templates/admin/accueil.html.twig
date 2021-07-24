@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Admin - Forum Associatif{% endblock %}
+{% block bodyclass %}admin-accueil{% endblock %}
+{% block body %}
+<main class="admin" id="admin">
+    <h1>Espace Administrateur</h1>
+    <p class="subtitle">JSP</p>
+
+    <a href="{{ path('admin_association_index') }}">ASSOCIATIONS</a>
+    <a href="{{ path('admin_category_index') }}">CATÉGORIES</a>
+
+
+</main>
+
+
+
+{% endblock %}

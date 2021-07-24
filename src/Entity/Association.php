@@ -44,11 +44,6 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     private $logo;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $banner;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $status;
@@ -78,11 +73,6 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\JoinColumn(nullable=true)
      */
     private $category;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $video;
 
     /**
      * @ORM\Column(type="text")
@@ -235,18 +225,6 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBanner(): ?string
-    {
-        return $this->banner;
-    }
-
-    public function setBanner(string $banner): self
-    {
-        $this->banner = $banner;
-
-        return $this;
-    }
-
     public function getStatus(): ?string
     {
         return $this->status;
@@ -310,26 +288,14 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCategoryId(): ?Category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    public function setCategoryId(Category $category): self
+    public function setCategory(Category $category): self
     {
         $this->category = $category;
-
-        return $this;
-    }
-
-    public function getVideo(): ?string
-    {
-        return $this->video;
-    }
-
-    public function setVideo(string $video): self
-    {
-        $this->video = $video;
 
         return $this;
     }
@@ -452,5 +418,10 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         $this->projects = $projects;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
