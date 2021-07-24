@@ -1,10 +1,105 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mon Profil - Forum Associatif{% endblock %}
-
+{% block bodyclass %}profil-asso{% endblock %}
 
 {% block body %}
+    <header>
+        <h1>Modification des informations de l’association</h1>
+        <p class="subtitle">* : champ obligatoire</p>
+    </header>
+    <main>
+        {{ form_start(form) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
+        </div>
+        <div class="form-section">
+            <p class="title">✨ Informations générales</p>
+            <div class="form-content">
+                <div class="form-item">
+                    {{ form_row(form.name) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.logo) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.banner) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.catchphrase) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.status) }}
+                </div>
+            </div>
+        </div>
 
-{{ form(form) }}
+        <div class="form-section">
+            <p class="title">⚠ Informations importantes</p>
+            <div class="form-content">
+                <div class="form-item">
+                    {{ form_row(form.description) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.video) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.projects) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.profile_type) }}
+                </div>
+            </div>
 
+        </div>
+
+        <div class="form-section">
+            <p class="title">🌐 Réseaux sociaux</p>
+            <div class="form-content">
+                <div class="form-item">
+                    {{ form_row(form.email) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.facebook) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.instagram) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.twitter) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.youtube) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.twitch) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.discord) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.autre) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <p class="title">📸 Galerie d’images</p>
+            <div class="form-content">
+                <div class="form-item">
+                    {{ form_row(form.image) }}
+                </div>
+            </div>
+        </div>
+        {{ form_row(form._token) }}
+        <div class="form-section">
+            <div class="form-submit">
+                {{ form_row(form.Modifier) }}
+                {{ form_row(form.Annuler) }}
+            </div>
+        </div>
+
+
+        {{ form_end(form) }}
+    </main>
 {% endblock %}

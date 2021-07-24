@@ -1,0 +1,107 @@
+.login-page {
+  main {
+    @include pagespadding();
+    padding-top: 75px;
+    padding-bottom: 150px;
+
+    form {
+      margin-top: 60px;
+
+      width: 100%;
+
+      @include md {
+        width: 70%;
+      }
+
+      @include xl {
+        width: 50%;
+      }
+
+      @include xxl {
+        width: 40%;
+      }
+
+      .form-field {
+
+        margin-bottom: 60px;
+
+
+        label {
+          display: block;
+          @include font-props(18,400);
+
+          + div input {
+            margin-top: 15px;
+            padding-left: 20px;
+          }
+        }
+
+        > div {
+          position: relative;
+
+
+          &::after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $bg-linear-inverse;
+            z-index: 1;
+          }
+        }
+
+        input {
+          width: 100%;
+          height: 50px;
+          background-color: $bg-medium-grey;
+          @include font-props(14,400);
+
+        }
+      }
+
+      button {
+        margin: 15px auto 0 auto;
+        max-width: 230px !important;
+        display: inherit;
+      }
+
+    }
+  }
+
+  .error {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    color: #F50040;
+    @include font-props(18,600);
+    padding: 10px 30px;
+    width: 100%;
+
+    @include md {
+      width: 70%;
+    }
+
+    @include xl {
+      width: 50%;
+    }
+
+    @include xxl {
+      width: 40%;
+    }
+  }
+
+  .loggedin {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    color: #505050;
+    @include font-props(18,600);
+    padding: 10px 30px;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}

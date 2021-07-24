@@ -4,21 +4,19 @@
 {% block bodyclass %}associations-single{% endblock %}
 {% block body %}
     <header>
-        <img src="{{ asset('uploads/' ~ association.banner ~ '') }}" alt="Bannière de présentation de {{ association.name }}">
+        <img src="{{ asset('uploads/' ~ association.slug ~ '/banners/' ~ banner ~ '') }}" alt="Bannière de présentation de {{ association.name }}">
         <div class="associations-single__title">
             <div>
                 <h1>{{association.name}}</h1>
                 <p class="subtitle">{{association.catchphrase}}</p>
-                <p class="category">Catégorie (non dynamique)</p>
+                <p class="category">{{association.status}}</p>
             </div>
             <div>
-                <img src="{{ asset('uploads/' ~ association.logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
+                <img src="{{ asset('uploads/' ~ association.slug ~ '/logo/' ~ logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
             </div>
         </div>
     </header>
     <main>
-        {{ dump(association) }}
-        {{ dump(images) }}
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
@@ -39,7 +37,7 @@
             </div>
             <div class="content">
                 <video controls>
-                    <source src="{{ asset('uploads/' ~ association.video ~ '') }}" type="video/mp4">
+                    <source src="{{ asset('uploads/' ~ association.slug ~ '/videos/' ~ video ~ '') }}" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -51,7 +49,7 @@
                 </div>
             </div>
             <div class="content">
-                <p>Y'a pas la colonne en DB issou</p>
+                <p>{{association.projects | nl2br}}</p>
             </div>
         </div>
         <div class="associations-single__bloc">
@@ -65,7 +63,7 @@
                 <p>{{association.profiletype | nl2br}}</p>
             </div>
         </div>
-        <div class="associations-single__bloc">
+        <!--<div class="associations-single__bloc">
             <div class="info">
                 <div>
                     <i class="fas fa-comments"></i>
@@ -73,9 +71,9 @@
                 </div>
             </div>
             <div class="content">
-                <p>{{association.description}}</p>
+                
             </div>
-        </div>
+        </div>-->
         <div class="associations-single__bloc">
             <div class="info">
                 <div>
