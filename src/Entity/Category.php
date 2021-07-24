@@ -89,7 +89,7 @@ class Category
     {
         if (!$this->associations->contains($association)) {
             $this->associations[] = $association;
-            $association->setCategoryId($this);
+            $association->setCategory($this);
         }
 
         return $this;
@@ -99,8 +99,8 @@ class Category
     {
         if ($this->associations->removeElement($association)) {
             // set the owning side to null (unless already changed)
-            if ($association->getCategoryId() === $this) {
-                $association->setCategoryId(null);
+            if ($association->getCategory() === $this) {
+                $association->setCategory(null);
             }
         }
 
@@ -117,5 +117,10 @@ class Category
         $this->description = $description;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

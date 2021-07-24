@@ -288,12 +288,12 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCategoryId(): ?Category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    public function setCategoryId(Category $category): self
+    public function setCategory(Category $category): self
     {
         $this->category = $category;
 
@@ -418,5 +418,10 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
         $this->projects = $projects;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
