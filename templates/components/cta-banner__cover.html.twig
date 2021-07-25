@@ -1,20 +1,26 @@
-<div class="cta-banner cta-banner__cover{% if singleAsso %} cta-banner__asso{% endif %}">
+<div class="cta-banner cta-banner__cover{% if singleAsso is defined %}{% if singleAsso %} cta-banner__asso{% endif %}{% endif %}">
     <div>
         {% block icone %}<i class="fab fa-discord"></i>{% endblock %}
     </div>
     <div>
+        {% if singleAsso is defined %}
         {% if singleAsso %}
         <div>
         {% endif %}
+        {% endif %}
         <p class="title">{% block title %}#{% endblock %}</p>
         <p>{% block text %}#{% endblock %}</p>
+        {% if singleAsso is defined %}
         {% if singleAsso %}
             </div>
             <div>
         {% endif %}
+        {% endif %}
         <a href="{% block url %}#{% endblock %}"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>{% block urltext %}#{% endblock %} <i class="fas fa-external-link-alt"></i></a>
+        {% if singleAsso is defined %}
         {% if singleAsso %}
             </div>
+        {% endif %}
         {% endif %}
     </div>
 </div>
