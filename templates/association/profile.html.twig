@@ -88,11 +88,22 @@
 
         <div class="form-section">
             <p class="title">📸 Galerie d’images</p>
-            <div class="form-content">
+            <div class="form-gallery">
                 <div class="form-item">
                     {{ form_row(form.image) }}
                 </div>
+                {% if images != 'empty' %}
+                <div class="form-gallery-content">
+                    {% for image in images %}
+                        <div>
+                            <img src="{{ asset('uploads/' ~ slug ~ '/images/' ~ image ~ '') }}" alt="Galerie - Image">
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
+
+
         </div>
         {{ form_row(form._token) }}
         <div class="form-section">

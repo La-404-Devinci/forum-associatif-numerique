@@ -89,6 +89,24 @@
       }
     }
 
+    .form-gallery {
+      padding: 65px 90px;
+      background: $bg-medium-grey;
+      border-radius: 6px;
+      width: 100%;
+
+      &-content {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        > div {
+          width: 30%;
+          margin-bottom: 40px;
+        }
+      }
+    }
+
     .form-submit {
 
       @include md {
