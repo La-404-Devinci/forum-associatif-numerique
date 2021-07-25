@@ -17,7 +17,7 @@
       flex-wrap: nowrap;
     }
 
-    div:first-child {
+    > div:first-child {
       width: 80%;
       text-align: center;
       overflow: hidden;
@@ -54,7 +54,7 @@
       }
     }
 
-    div:last-child {
+    > div:last-child {
       width: 70%;
 
       @include md {
@@ -99,6 +99,75 @@
       display: block;
       i {
         margin-left: 10px;
+      }
+    }
+
+    &.cta-banner__asso {
+      padding: 64px 10%;
+      margin-bottom: 120px;
+      gap: 40px;
+      justify-content: center;
+
+      @include md {
+        gap: 90px;
+      }
+
+      > div > i {
+        font-size: 90px;
+        transform: none;
+        transform-origin: center;
+
+        @include md {
+          font-size: 160px;
+        }
+      }
+
+      > div:first-child {
+        width: 200px;
+        flex-shrink: 0;
+      }
+
+      > div:last-child {
+        width: 100%;
+
+        @include lg {
+          display: flex;
+          gap: 90px;
+          align-items: center;
+          justify-content: space-evenly;
+
+          p:last-of-type {
+            margin-bottom: 0;
+          }
+
+        }
+
+        > div:last-child {
+          text-align: center;
+
+          @include md {
+            text-align: left;
+          }
+        }
+
+
+
+
+
+      }
+
+      a {
+        display: inline-block;
+        padding: 16px 32px;
+        background-color: $bg-inverted;
+        color: $color-primary;
+        @include font-props(22,700);
+        border-radius: 6px;
+        margin-top: 0;
+
+        i {
+          display: none;
+        }
       }
     }
   }

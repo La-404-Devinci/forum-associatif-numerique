@@ -14,9 +14,9 @@ import AOS from "aos";
 import "@fortawesome/fontawesome-free";
 import Isotope from 'isotope-layout';
 import ImagesLoaded from 'imagesloaded';
+import GLightbox from 'glightbox';
 
 AOS.init();
-
 
 document.querySelector('#navigation-burger').addEventListener('click', function(){
     this.classList.toggle('active')
@@ -52,6 +52,22 @@ if(document.querySelector('.associations-single .galerie') != null) {
             }
         })
     })
+}
+
+var lightbox = GLightbox();
+lightbox.on('open', (target) => {
+    console.log('lightbox opened');
+});
+
+var singleHeightSelector = document.querySelector('.associations-single__title');
+if(singleHeightSelector != null) {
+    var singleHeight = singleHeightSelector.offsetHeight - 50;
+    singleHeightSelector.parentElement.style.marginBottom = singleHeight + 'px'
+
+    window.addEventListener('resize', function(){
+        var singleHeight = singleHeightSelector.offsetHeight
+        singleHeightSelector.parentElement.style.marginBottom = singleHeight + 'px'
+    });
 }
 
 
