@@ -4,48 +4,57 @@
 {% block bodyclass %}login-page{% endblock %}
 {% block body %}
     <main>
-        <h1>Connexion - Espace asso</h1>
+
             {% if app.user %}
                 <div class="loggedin">
                     Hello {{ app.user.username }} ! <a href="{{ path('app_logout') }}">Se deconnecter</a>
                 </div>
             {% else %}
-                {% if error %}
-                    <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-                <form method="post">
-                    <div class="form-field">
-                        <label for="inputName">Non d'utilisateur</label>
-                        <div> {# THIS DIV MUST BE HERE - DO NOT TOUCH !!!!!!!!!!! #}
-                            <input type="text" value="{{ last_username }}" name="name" id="inputName" class="form-control" autocomplete="username" required autofocus>
-                        </div>
+                <div class="login-page__content">
+                    <div>
+                        <h1>Connexion - Espace asso</h1>
+                        {% if error %}
+                            <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <form method="post">
+                            <div class="form-field">
+                                <label for="inputName">Non d'utilisateur</label>
+                                <div> {# THIS DIV MUST BE HERE - DO NOT TOUCH !!!!!!!!!!! #}
+                                    <input type="text" value="{{ last_username }}" name="name" id="inputName" class="form-control" autocomplete="username" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="inputPassword">Mot de passe</label>
+                                <div> {# THIS DIV MUST BE HERE - DO NOT TOUCH !!!!!!!!!!! #}
+                                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+
+                            {#
+                            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                            See https://symfony.com/doc/current/security/remember_me.html
+
+                            <div class="checkbox mb-3">
+                                <label>
+                                    <input type="checkbox" name="_remember_me"> Remember me
+                                </label>
+                            </div>
+                            #}
+
+                            <button class="button-link small" type="submit">
+                                Se connecter
+                            </button>
+                        </form>
                     </div>
-                    <div class="form-field">
-                        <label for="inputPassword">Mot de passe</label>
-                        <div> {# THIS DIV MUST BE HERE - DO NOT TOUCH !!!!!!!!!!! #}
-                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-                        </div>
+                    <div>
+                        <img src="{{ asset('build/images/logos/logo-forum-white.png') }}" alt="Logo forum asso">
                     </div>
+                </div>
 
-                    <input type="hidden" name="_csrf_token"
-                           value="{{ csrf_token('authenticate') }}"
-                    >
-
-                    {#
-                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                    See https://symfony.com/doc/current/security/remember_me.html
-
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" name="_remember_me"> Remember me
-                        </label>
-                    </div>
-                    #}
-
-                    <button class="button-link small" type="submit">
-                        Se connecter
-                    </button>
-                </form>
 
             {% endif %}
 
