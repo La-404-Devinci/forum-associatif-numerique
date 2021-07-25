@@ -66,36 +66,43 @@ class ProfileFormType extends AbstractType
             ->add('instagram', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Instagram',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('twitter', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Twitter',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('youtube', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Youtube',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('twitch', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Twitch',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('discord', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Discord',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('facebook', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Facebook',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('autre', TextareaType::class, [
                 'label' => 'Autres réseaux',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('projects', TextareaType::class, [
                 'label' => 'Projets à venir',
@@ -104,6 +111,12 @@ class ProfileFormType extends AbstractType
             ->add('status', TextType::class, [
                 'label' => 'Statut(s)',
                 'required' => false
+            ])
+            ->add('form', UrlType::class, [
+                'default_protocol' => 'https',
+                'label' => 'Formulaire d\'inscription',
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
         ;
     }

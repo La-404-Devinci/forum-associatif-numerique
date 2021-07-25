@@ -70,4 +70,16 @@ if(singleHeightSelector != null) {
     });
 }
 
-
+if(document.querySelector('.login-page') != null) {
+    document.querySelector('#inputName').addEventListener('input', function(){
+        let inputVal = document.querySelector('#inputName').value.trim().replace(/\s+/g, '-').toLowerCase()
+        let image = new Image()
+        image.src = "/white/"+inputVal+".png"
+        image.onload = function() {
+            document.querySelector('#login-logo').src = "/white/"+inputVal+".png"
+        }
+        image.onerror = function() {
+            document.querySelector('#login-logo').src = "/white/forum.png"
+        }
+    })
+}
