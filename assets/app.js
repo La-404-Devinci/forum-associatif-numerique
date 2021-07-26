@@ -83,3 +83,27 @@ if(document.querySelector('.login-page') != null) {
         }
     })
 }
+
+if(document.querySelector(".profil-asso") != null) {
+
+    let defaultImg = document.querySelector('#profile_form_logo').value
+    if(document.querySelector('.form-gallery-content div img[src="'+defaultImg+'"]') != null) {
+        document.querySelector('.form-gallery-content div img[src="'+defaultImg+'"]').classList.add('active')
+    }
+
+
+    document.querySelectorAll('.form-gallery-content div img').forEach(function (item){
+        item.addEventListener('click', function(){
+            console.log(this)
+
+            document.querySelectorAll('.form-gallery-content div img').forEach(function (item){
+                item.classList.remove('active')
+            })
+            this.classList.add('active')
+            let imgLink = this.getAttribute('src')
+            document.querySelector('#profile_form_logo').value = imgLink
+
+        })
+    })
+
+}

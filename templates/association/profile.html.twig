@@ -20,7 +20,7 @@
                     {{ form_row(form.name) }}
                 </div>
                 <div class="form-item">
-                    {{ form_row(form.logo) }}
+                    {{ form_row(form.logoAsso) }}
                 </div>
                 <div class="form-item">
                     {{ form_row(form.banner) }}
@@ -31,18 +31,18 @@
                 <div class="form-item">
                     {{ form_row(form.status) }}
                 </div>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <p class="title">⚠ Informations importantes</p>
-            <div class="form-content">
                 <div class="form-item">
                     {{ form_row(form.description) }}
                 </div>
                 <div class="form-item">
                     {{ form_row(form.video) }}
                 </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <p class="title">📈 Activité de l’association</p>
+            <div class="form-content">
                 <div class="form-item">
                     {{ form_row(form.projects) }}
                 </div>
@@ -92,6 +92,11 @@
                 <div class="form-item">
                     {{ form_row(form.image) }}
                 </div>
+                <div>
+                    <p>La photo encadrée illustre l’assocation sur la page <span class="color-secondary bold">Catégorie {{ cat }}</span>.
+                        </p>
+                    <p class="underline">Vous pouvez choisir l'image en avant en cliquant dessus. Elle aura une bordure violette.</p>
+                </div>
                 {% if images != 'empty' %}
                 <div class="form-gallery-content">
                     {% for image in images %}
@@ -106,6 +111,7 @@
 
         </div>
         {{ form_row(form._token) }}
+        {{ form_row(form.logo) }}
         <div class="form-section">
             <div class="form-submit">
                 {{ form_row(form.Modifier) }}

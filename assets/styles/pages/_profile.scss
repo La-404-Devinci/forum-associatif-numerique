@@ -95,6 +95,11 @@
       border-radius: 6px;
       width: 100%;
 
+      p {
+        @include font-props(18, 400);
+        text-align: center;
+      }
+
       &-content {
         margin-top: 50px;
         display: flex;
@@ -103,6 +108,13 @@
         > div {
           width: 30%;
           margin-bottom: 40px;
+          img {
+            border: 5px solid transparent;
+            &.active {
+              border: 5px solid $color-primary;
+            }
+          }
+
         }
       }
     }

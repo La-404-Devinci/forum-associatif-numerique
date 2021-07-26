@@ -84,7 +84,7 @@ class AssociationController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             
-            $logoFile =$form->get('logo')->getData();
+            $logoFile =$form->get('logoAsso')->getData();
             $videoFile =$form->get('video')->getData();
             $imageFile =$form->get('image')->getData();
             $bannerFile =$form->get('banner')->getData();
@@ -163,7 +163,8 @@ class AssociationController extends AbstractController
         return $this->render('association/profile.html.twig',  [
             'form' => $form->createView(),
             'images' => $galerie,
-            'slug' => $user->getSlug()
+            'slug' => $user->getSlug(),
+            'cat' => $user->getCategory()->getName()
         ]);
     }
 

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Association;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,9 +25,13 @@ class ProfileFormType extends AbstractType
                 'label' => 'Nom de l\'association',
                 'required' => true
             ])
-            ->add('logo', FileType::class, [
+            ->add('logoAsso', FileType::class, [
                 'mapped' => false,
                 'label' => 'Logo',
+                'required' => false
+            ])
+            ->add('logo', HiddenType::class, [
+                'mapped' => true,
                 'required' => false
             ])
             ->add('banner', FileType::class, [
