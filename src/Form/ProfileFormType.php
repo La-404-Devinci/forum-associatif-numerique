@@ -53,7 +53,7 @@ class ProfileFormType extends AbstractType
                 'required' => false
             ])
             ->add('image', FileType::class, [
-                'label' => 'Image pour galerie',
+                'label' => 'Ajouter des images',
                 'mapped' => false,
                 'required' => false,
                 'multiple' => 'multiple'
