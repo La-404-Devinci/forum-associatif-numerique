@@ -2,6 +2,11 @@
   header {
     position: relative;
     margin-bottom: 340px;
+    text-align: center;
+
+    @include md {
+      text-align: left;
+    }
 
 
     > img {
@@ -14,16 +19,24 @@
     .associations-single__title {
       margin-left: 10%;
       margin-right: 10%;
-      width: 60%;
-      display: flex;
-      gap: 40px;
-      justify-content: space-between;
-      align-items: center;
+      width: 80%;
       background: $bg-medium-grey;
-      padding: 60px 80px;
+      padding: 50px 30px;
       position: absolute;
-      bottom: 0;
-      transform: translateY(50%);
+      top: 0;
+      transform: translateY(90px);
+
+      @include md {
+        display: flex;
+        gap: 40px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 60px 80px;
+      }
+
+      @include xl {
+        width: 60%;
+      }
 
       &::after {
         content: '';
@@ -37,8 +50,12 @@
       }
 
       img {
-        height: 170px;
+        height: 120px;
         width: auto;
+
+        @include md {
+          height: 170px;
+        }
       }
 
       > div:first-child {
@@ -52,31 +69,74 @@
       }
 
       > div:last-child {
-        width: 170px;
+        width: 120px;
         flex-shrink: 0;
-        text-align: right;
+        text-align: center;
+        margin: 40px auto 0 auto;
+        @include md {
+          width: 170px;
+          text-align: right;
+          margin: 0;
+        }
       }
 
       .category {
         text-transform: uppercase;
-        @include font-props(18,500);
+        @include font-props(14,500);
         background: $bg-linear;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @include md {
+          @include font-props(18,500);
+        }
+      }
+
+      h1 {
+        @include font-props(24,700);
+      }
+
+      h1 + .subtitle {
+        @include font-props(14,400);
+      }
+
+      @include md {
+        h1 {
+          @include font-props(30,700);
+        }
+
+        h1 + .subtitle {
+          @include font-props(16,400);
+        }
+
+      }
+      @include lg {
+        h1 {
+          @include font-props(36,700);
+        }
+
+        h1 + .subtitle {
+          @include font-props(18,400);
+        }
+
       }
     }
   }
 
   main {
-    @include pagespadding;
+
 
     .associations-single__bloc {
-      display: flex;
-      gap: 100px;
-      justify-content: space-between;
-      align-items: center;
+      @include pagespadding;
       @include font-props(16,400);
       margin-bottom: 130px;
+
+      @include md {
+        display: flex;
+        gap: 100px;
+        justify-content: space-between;
+        align-items: center;
+      }
 
       .info {
         width: 200px;
@@ -84,6 +144,11 @@
         background: $bg-linear-45;
         padding: 4px;
         border-radius: 5px;
+        margin: 0 auto 50px auto;
+        @include md {
+          margin: 0;
+        }
+
         > div {
           background: $bg-main;
           padding: 30px 20px;
@@ -107,8 +172,16 @@
         &.galerie {
 
           .galerie-image {
-            width: calc(100% / 3 - 15px);
+            width: 100%;
             margin-bottom: 10px;
+
+            @include md {
+              width: calc(100% / 2 - 15px);
+            }
+
+            @include lg {
+              width: calc(100% / 3 - 15px);
+            }
 
             img {
               width: 100%;

@@ -2482,6 +2482,11 @@ get-stream@^6.0.0:
   resolved "https://registry.npmjs.org/get-stream/-/get-stream-6.0.1.tgz"
   integrity sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==
 
+glightbox@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/glightbox/-/glightbox-3.0.9.tgz#3c4e64e1e8b6548dcb7f535fd081aa151644bb9f"
+  integrity sha512-XI5xLiwJAdia/WVcb0ftjLZHz0MAXo6D5NDURFlhIBm1dG3e4XxP5DQFVUutOBa5sNjVXwyVXCAC7ab5uttMLg==
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz"

@@ -57,6 +57,15 @@
             </div>
         </div>
         {% endif %}
+        {% if association.form is not empty %}
+            {% embed "components/cta-banner__cover.html.twig" with {'external': true, 'singleAsso': true} %}
+                {% block icone %}<i class="far fa-paper-plane"></i>{% endblock %}
+                {% block title %}L’association recrute !{% endblock %}
+                {% block text %}Rejoins-nous dès maintenant !{% endblock %}
+                {% block url %}{{ association.form }}{% endblock %}
+                {% block urltext %}Postuler{% endblock %}
+            {% endembed %}
+        {% endif %}
         {% if association.projects is not empty %}
         <div class="associations-single__bloc">
             <div class="info">
@@ -132,7 +141,9 @@
             <div class="content galerie">
                 {% for image in images %}
                     <div class="galerie-image">
-                        <img src="{{ asset('uploads/' ~ association.slug ~ '/images/' ~ image ~ '') }}" alt="Galerie - Image {{ association.name }}">
+                        <a href="{{ asset('uploads/' ~ association.slug ~ '/images/' ~ image ~ '') }}"  class="glightbox" data-gallery="gallery1">
+                            <img src="{{ asset('uploads/' ~ association.slug ~ '/images/' ~ image ~ '') }}" alt="Galerie - Image {{ association.name }}">
+                        </a>
                     </div>
                 {% endfor %}
             </div>
