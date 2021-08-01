@@ -28,12 +28,11 @@ class AssociationFixtures extends Fixture
         $association->setPassword($password);
         $association->setRoles(['ROLE_USER']);
         $association->setLogo('c\'est le logo');
-        $association->setBanner('c\'est la bannière');
         $association->setStatus('/');
         $association->setCatchphrase('c\'est la phrase d\'accroche');
         $association->setDescription('c\'est la description');
         $association->setProfileType('MOTIVE ET DYNAMIQUE OUAIS');
-        $association->setVideo('c\'est la vidéo');
+        $association->setThumbnail('c\'est le thumbnail');
         $association->setFacebook('c\'est le facebook');
         $association->setInstagram('c\'est le instagram');
         $association->setTwitter('c\'est le twitter');
