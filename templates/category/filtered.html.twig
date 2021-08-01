@@ -1,16 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{category.name}} - Forum Associatif{% endblock %}
-
+{% block bodyclass %}category{% endblock %}
 {% block body %}
 
-<h1>ICI SINGLE ASSO</h1>
+    <header>
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+    </header>
+
+    <main>
+        {% for association in associations %}
+            <div class="category__card{% if association.thumbnail is empty %} no-img{% endif %}">
+                {% if association.thumbnail is not empty %}
+                <img src="{{ asset(association.thumbnail) }}" alt="Image mise en avant de l'association {{ association.name }}">
+                {% endif %}
+                <div>
+                    <h2>{{association.name}}</h2>
+                    <p>{{association.description}}</p>
+                    <a href="{{ path('association', {slug: association.slug}) }}" class="button-link small">En savoir +</a>
+                </div>
+            </div>
+        {% endfor %}
+    </main>
 
 
-    {% for association in associations %}
-    <a href="{{ path('association', {slug: association.slug}) }}">
-        <li>{{association.name}}</li>
-    </a>
-    {% endfor %}
+
 
 {% endblock %}
