@@ -86,6 +86,8 @@ class AssociationController extends AbstractController
                 } catch (FileException $e) {
 
                 }
+
+                $user->setLogo($newFilename);
             }
 
             if($videoFile) {
