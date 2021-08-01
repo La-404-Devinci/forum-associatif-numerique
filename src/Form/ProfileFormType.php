@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Association;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,9 +25,13 @@ class ProfileFormType extends AbstractType
                 'label' => 'Nom de l\'association',
                 'required' => true
             ])
-            ->add('logo', FileType::class, [
+            ->add('logoAsso', FileType::class, [
                 'mapped' => false,
                 'label' => 'Logo',
+                'required' => false
+            ])
+            ->add('logo', HiddenType::class, [
+                'mapped' => true,
                 'required' => false
             ])
             ->add('banner', FileType::class, [
@@ -48,7 +53,7 @@ class ProfileFormType extends AbstractType
                 'required' => false
             ])
             ->add('image', FileType::class, [
-                'label' => 'Image pour galerie',
+                'label' => 'Ajouter des images',
                 'mapped' => false,
                 'required' => false,
                 'multiple' => 'multiple'
@@ -66,36 +71,43 @@ class ProfileFormType extends AbstractType
             ->add('instagram', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Instagram',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('twitter', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Twitter',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('youtube', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Youtube',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('twitch', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Twitch',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('discord', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Discord',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('facebook', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Facebook',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('autre', TextareaType::class, [
                 'label' => 'Autres réseaux',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
             ->add('projects', TextareaType::class, [
                 'label' => 'Projets à venir',
@@ -104,6 +116,12 @@ class ProfileFormType extends AbstractType
             ->add('status', TextType::class, [
                 'label' => 'Statut(s)',
                 'required' => false
+            ])
+            ->add('form', UrlType::class, [
+                'default_protocol' => 'https',
+                'label' => 'Formulaire d\'inscription',
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
         ;
     }

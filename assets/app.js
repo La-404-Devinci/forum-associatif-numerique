@@ -14,9 +14,9 @@ import AOS from "aos";
 import "@fortawesome/fontawesome-free";
 import Isotope from 'isotope-layout';
 import ImagesLoaded from 'imagesloaded';
+import GLightbox from 'glightbox';
 
 AOS.init();
-
 
 document.querySelector('#navigation-burger').addEventListener('click', function(){
     this.classList.toggle('active')
@@ -54,4 +54,56 @@ if(document.querySelector('.associations-single .galerie') != null) {
     })
 }
 
+var lightbox = GLightbox();
+lightbox.on('open', (target) => {
+    console.log('lightbox opened');
+});
 
+var singleHeightSelector = document.querySelector('.associations-single__title');
+if(singleHeightSelector != null) {
+    var singleHeight = singleHeightSelector.offsetHeight - 50;
+    singleHeightSelector.parentElement.style.marginBottom = singleHeight + 'px'
+
+    window.addEventListener('resize', function(){
+        var singleHeight = singleHeightSelector.offsetHeight
+        singleHeightSelector.parentElement.style.marginBottom = singleHeight + 'px'
+    });
+}
+
+if(document.querySelector('.login-page') != null) {
+    document.querySelector('#inputName').addEventListener('input', function(){
+        let inputVal = document.querySelector('#inputName').value.trim().replace(/\s+/g, '-').toLowerCase()
+        let image = new Image()
+        image.src = "/white/"+inputVal+".png"
+        image.onload = function() {
+            document.querySelector('#login-logo').src = "/white/"+inputVal+".png"
+        }
+        image.onerror = function() {
+            document.querySelector('#login-logo').src = "/white/forum.png"
+        }
+    })
+}
+
+if(document.querySelector(".profil-asso") != null) {
+
+    let defaultImg = document.querySelector('#profile_form_logo').value
+    if(document.querySelector('.form-gallery-content div img[src="'+defaultImg+'"]') != null) {
+        document.querySelector('.form-gallery-content div img[src="'+defaultImg+'"]').classList.add('active')
+    }
+
+
+    document.querySelectorAll('.form-gallery-content div img').forEach(function (item){
+        item.addEventListener('click', function(){
+            console.log(this)
+
+            document.querySelectorAll('.form-gallery-content div img').forEach(function (item){
+                item.classList.remove('active')
+            })
+            this.classList.add('active')
+            let imgLink = this.getAttribute('src')
+            document.querySelector('#profile_form_logo').value = imgLink
+
+        })
+    })
+
+}

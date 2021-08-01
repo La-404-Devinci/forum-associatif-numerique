@@ -63,12 +63,28 @@ class AssociationController extends AbstractController
     {
         $user = $this->getUser();
         $form = $this->createForm(ProfileFormType::class, $user);
-
         $form->handleRequest($request);
+        //dd($user);
+        $filesystem = new Filesystem();
+        $galerie = 'empty';
+        if($filesystem->exists(__DIR__.'/../../public/uploads/' . $user->getSlug() . '/images')) {
+
+            $galerieFinder = new Finder();
+            $galerieFinder->files()->in(__DIR__.'/../../public/uploads/' . $user->getSlug() . '/images');
+            if($galerieFinder->hasResults()) {
+                $galerie = [];
+                foreach ($galerieFinder as $file) {
+                    array_push($galerie, $file->getRelativePathname());
+                }
+            }
+        }
+
+
+
 
         if($form->isSubmitted() && $form->isValid()) {
             
-            $logoFile =$form->get('logo')->getData();
+            $logoFile =$form->get('logoAsso')->getData();
             $videoFile =$form->get('video')->getData();
             $imageFile =$form->get('image')->getData();
             $bannerFile =$form->get('banner')->getData();
@@ -148,6 +164,9 @@ class AssociationController extends AbstractController
 
         return $this->render('association/profile.html.twig',  [
             'form' => $form->createView(),
+            'images' => $galerie,
+            'slug' => $user->getSlug(),
+            'cat' => $user->getCategory()->getName()
         ]);
     }
 

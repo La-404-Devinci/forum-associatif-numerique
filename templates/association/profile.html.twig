@@ -20,7 +20,7 @@
                     {{ form_row(form.name) }}
                 </div>
                 <div class="form-item">
-                    {{ form_row(form.logo) }}
+                    {{ form_row(form.logoAsso) }}
                 </div>
                 <div class="form-item">
                     {{ form_row(form.banner) }}
@@ -31,23 +31,26 @@
                 <div class="form-item">
                     {{ form_row(form.status) }}
                 </div>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <p class="title">⚠ Informations importantes</p>
-            <div class="form-content">
                 <div class="form-item">
                     {{ form_row(form.description) }}
                 </div>
                 <div class="form-item">
                     {{ form_row(form.video) }}
                 </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <p class="title">📈 Activité de l’association</p>
+            <div class="form-content">
                 <div class="form-item">
                     {{ form_row(form.projects) }}
                 </div>
                 <div class="form-item">
                     {{ form_row(form.profile_type) }}
+                </div>
+                <div class="form-item">
+                    {{ form_row(form.form) }}
                 </div>
             </div>
 
@@ -85,13 +88,30 @@
 
         <div class="form-section">
             <p class="title">📸 Galerie d’images</p>
-            <div class="form-content">
+            <div class="form-gallery">
                 <div class="form-item">
                     {{ form_row(form.image) }}
                 </div>
+                <div>
+                    <p>La photo encadrée en violet illustre l’assocation sur la page <span class="color-secondary bold">Catégorie {{ cat }}</span>.
+                        </p>
+                    <p class="bold">Choisissez une autre photo en cliquant dessus.</p>
+                </div>
+                {% if images != 'empty' %}
+                <div class="form-gallery-content">
+                    {% for image in images %}
+                        <div>
+                            <img src="{{ asset('uploads/' ~ slug ~ '/images/' ~ image ~ '') }}" alt="Galerie - Image">
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
+
+
         </div>
         {{ form_row(form._token) }}
+        {{ form_row(form.logo) }}
         <div class="form-section">
             <div class="form-submit">
                 {{ form_row(form.Modifier) }}
