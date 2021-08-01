@@ -25,12 +25,12 @@ class ProfileFormType extends AbstractType
                 'label' => 'Nom de l\'association',
                 'required' => true
             ])
-            ->add('logoAsso', FileType::class, [
+            ->add('logo', FileType::class, [
                 'mapped' => false,
                 'label' => 'Logo',
                 'required' => false
             ])
-            ->add('logo', HiddenType::class, [
+            ->add('thumbnail', HiddenType::class, [
                 'mapped' => true,
                 'required' => false
             ])
