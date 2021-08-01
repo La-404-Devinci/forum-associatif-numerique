@@ -124,6 +124,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $projects;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $thumbnail;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -423,5 +428,17 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(string $thumbnail): self
+    {
+        $this->thumbnail = $thumbnail;
+
+        return $this;
     }
 }

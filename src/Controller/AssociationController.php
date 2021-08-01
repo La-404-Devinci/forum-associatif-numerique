@@ -84,7 +84,7 @@ class AssociationController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             
-            $logoFile =$form->get('logoAsso')->getData();
+            $logoFile =$form->get('logo')->getData();
             $videoFile =$form->get('video')->getData();
             $imageFile =$form->get('image')->getData();
             $bannerFile =$form->get('banner')->getData();
@@ -102,6 +102,8 @@ class AssociationController extends AbstractController
                 } catch (FileException $e) {
 
                 }
+
+                $user->setLogo($newFilename);
             }
 
             if($videoFile) {
