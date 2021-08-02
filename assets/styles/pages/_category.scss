@@ -5,6 +5,8 @@
 
     padding: 65px 0;
     background-color: $bg-secondary;
+    background-size: 130px;
+    background-repeat: space;
 
     > * {
       text-align: center;
@@ -26,13 +28,23 @@
 
     .category__card {
       position: relative;
-      margin-top: 200px;
+      margin-top: 80px;
+
+      @include lg {
+        margin-top: 200px;
+      }
 
 
       > img {
         width: 40%;
         position: absolute;
         top: -120px;
+        display: none;
+        @include lg {
+          display: inherit;
+          z-index: 0;
+          right: unset;
+        }
       }
 
       &.no-img > div {
@@ -40,12 +52,16 @@
       }
 
       > div {
-        width: 70%;
+        width: 100%;
         background-color: $bg-medium-grey;
         padding: 40px 50px 40px 80px;
         margin-left: auto;
         position: relative;
         z-index: 2;
+
+        @include lg {
+          width: 70%;
+        }
 
 
         &::after {
@@ -72,6 +88,46 @@
         a {
           width: auto;
         }
+      }
+    }
+  }
+
+  section {
+    @include pagespadding();
+    margin-bottom: 100px;
+    text-align: center;
+
+    > p {
+      @include font-props(24, 400);
+
+      &:last-of-type {
+        margin-top: 90px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .special-title {
+      text-align: center;
+      position: relative;
+      margin-bottom: 30px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        height: 4px;
+        background: linear-gradient(to right, $bg-primary 0, $bg-secondary 35%, $bg-secondary 65%, $bg-primary 100%);
+        z-index: -1;
+      }
+
+      p {
+        @include font-props(36, 700);
+        display: inline-block;
+        background: $bg-main;
+        padding: 0 60px;
       }
     }
   }

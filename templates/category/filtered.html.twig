@@ -4,7 +4,7 @@
 {% block bodyclass %}category{% endblock %}
 {% block body %}
 
-    <header>
+    <header style='background-image: url({{ asset('build/images/cat-bg/' ~ category.slug ~'.png') }});'>
         <h1>{{ category.name }}</h1>
         <p>{{ category.description }}</p>
     </header>
@@ -23,8 +23,13 @@
             </div>
         {% endfor %}
     </main>
-
-
-
-
+    <section>
+        <div class="special-title">
+            <p>Pour continuer</p>
+        </div>
+        <p>Découvre d’autres associations en parcourant les différentes catégories !</p>
+        {% include 'layouts/cat-blocs.html.twig' %}
+        <p>Et si tu n’arrives pas à choisir ou préfères avoir <span class="bold color-secondary">une vue d’ensemble des 58 associations</span></p>
+        <a href="/associations" class="button-link">Découvre toutes les associations</a>
+    </section>
 {% endblock %}
