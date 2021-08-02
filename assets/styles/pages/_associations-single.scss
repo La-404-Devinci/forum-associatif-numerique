@@ -52,9 +52,11 @@
       img {
         height: 120px;
         width: auto;
+        object-fit: contain;
 
         @include md {
           height: 170px;
+
         }
       }
 

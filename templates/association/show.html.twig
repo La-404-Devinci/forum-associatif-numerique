@@ -16,9 +16,9 @@
                         {{category.name}}
                         <span>
                         {% if category.associations|length < 2 %}
-                            {{ category.associations|length }} association
+                            {{ category.associations|length }} <span>association</span>
                         {% else %}
-                            {{ category.associations|length }} associations
+                            {{ category.associations|length }} <span>associations</span>
                         {% endif %}
                         </span>
                     </span>
@@ -27,6 +27,7 @@
 
                 {% for association in category.associations %}
                     <a href="{{ path('association', {slug: association.slug}) }}">
+                        <img src="{{ asset('uploads/' ~ association.slug ~ '/logos/' ~ association.logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
                         {{association.name}} <span>{{association.catchphrase}}</span>
                     </a>
                 {% endfor %}
