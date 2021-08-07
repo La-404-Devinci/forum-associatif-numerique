@@ -1,0 +1,19 @@
+.admin-form {
+  main {
+    @include pagespadding();
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    form div {
+      margin-bottom: 30px;
+    }
+
+    button {
+      background: $bg-primary;
+      color: $color-main;
+      @include font-props(18, 700);
+      padding: 16px 48px;
+      border-radius: 6px;
+    }
+  }
+}
