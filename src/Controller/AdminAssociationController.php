@@ -9,10 +9,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/admin/association')]
 class AdminAssociationController extends AbstractController
 {
+
+    public function __construct(UserPasswordHasherInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     #[Route('/', name: 'admin_association_index', methods: ['GET'])]
     public function index(AssociationRepository $associationRepository): Response
     {
@@ -25,10 +32,17 @@ class AdminAssociationController extends AbstractController
     public function new(Request $request): Response
     {
         $association = new Association();
+
         $form = $this->createForm(AssociationType::class, $association);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $passwordData =$form->get('password')->getData();
+            $password = $this->encoder->hashPassword($association, $passwordData);
+            $association->setPassword($password);
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($association);
             $entityManager->flush();
@@ -57,6 +71,11 @@ class AdminAssociationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $passwordData =$form->get('password')->getData();
+            $password = $this->encoder->hashPassword($association, $passwordData);
+            $association->setPassword($password);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_association_index', [], Response::HTTP_SEE_OTHER);
