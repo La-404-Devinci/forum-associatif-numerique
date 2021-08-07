@@ -4,10 +4,10 @@
 {% block bodyclass %}profil-asso{% endblock %}
 
 {% block body %}
-    <header>
-        <h1>Modification des informations de l’association</h1>
-        <p class="subtitle">* : champ obligatoire</p>
-    </header>
+    {% embed 'components/header-title.html.twig' %}
+        {% block title %}Modification des informations de l’association{% endblock %}
+        {% block subtitle %}* : champ obligatoire{% endblock %}
+    {% endembed %}
     <main>
         {{ form_start(form) }}
         <div class="my-custom-class-for-errors">
