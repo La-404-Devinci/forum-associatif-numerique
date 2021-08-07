@@ -94,9 +94,18 @@ class AssociationController extends AbstractController
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$logoFile->guessExtension();
 
+                $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/logos";
+
+                $files = glob($folderPath . '/*');
+
+                foreach($files as $file) {
+                    if(is_file($file))
+                    unlink($file);
+                }
+
                 try {
                     $logoFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/logos",
+                        $folderPath,
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -111,9 +120,18 @@ class AssociationController extends AbstractController
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$videoFile->guessExtension();
 
+                $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/videos";
+
+                $files = glob($folderPath . '/*');
+
+                foreach($files as $file) {
+                    if(is_file($file))
+                    unlink($file);
+                }
+
                 try {
                     $videoFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/videos",
+                        $folderPath,
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -143,9 +161,18 @@ class AssociationController extends AbstractController
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$bannerFile->guessExtension();
 
+                $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/banners";
+
+                $files = glob($folderPath . '/*');
+
+                foreach($files as $file) {
+                    if(is_file($file))
+                    unlink($file);
+                }
+
                 try {
                     $bannerFile->move(
-                        $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/banners",
+                        $folderPath,
                         $newFilename
                     );
                 } catch (FileException $e) {
