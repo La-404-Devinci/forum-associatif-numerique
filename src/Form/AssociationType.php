@@ -29,7 +29,7 @@ class AssociationType extends AbstractType
             ->add('catchphrase')
             ->add('description')
             ->add('profile_type')
-            ->add('slug')
+            //->add('slug')
             ->add('email')
             ->add('facebook')
             ->add('instagram')

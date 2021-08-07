@@ -3,9 +3,15 @@
 {% block title %}New Association{% endblock %}
 
 {% block body %}
-    <h1>Create new Association</h1>
+    {% embed 'components/header-title.html.twig' %}
+        {% block title %}Créer une nouvelle association{% endblock %}
+        {% block subtitle %}* : champ obligatoire{% endblock %}
+    {% endembed %}
 
-    {{ include('admin_association/_form.html.twig') }}
+    <main>
+        {{ include('admin_association/_form.html.twig') }}
+        <a href="{{ path('admin_association_index') }}">back to list</a>
+    </main>
 
-    <a href="{{ path('admin_association_index') }}">back to list</a>
+
 {% endblock %}

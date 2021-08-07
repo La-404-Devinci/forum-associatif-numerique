@@ -15,6 +15,7 @@
 
 @import
     "components/header-banner",
+    "components/header-title",
     "components/button-link",
     "components/cta-banner";
 
@@ -25,5 +26,7 @@
     "pages/login",
     "pages/profile",
     "pages/category";
+
+@import "pages/admin/asso-new";
 
 @import "shame";

@@ -1,10 +1,4 @@
 .profil-asso {
-  header {
-    @include pagespadding;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background: $bg-linear-inverse;
-  }
 
   main {
     @include pagespadding;
