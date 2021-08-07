@@ -17,9 +17,8 @@ class AssociationType extends AbstractType
             ->add('name')
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                        'Administrateur' => 'ROLE_ADMIN',
-                        'Utilisateur'    => 'ROLE_USER',
-                    ],
+                        'Administrateur' => 'ROLE_ADMIN'
+                ],
                 'expanded' => true,
                 'multiple' => true,
             ])
