@@ -129,6 +129,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $thumbnail;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $linkedin;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -389,6 +394,18 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDiscord(?string $discord): self
     {
         $this->discord = $discord;
+
+        return $this;
+    }
+
+    public function getLinkedin(): ?string
+    {
+        return $this->linkedin;
+    }
+
+    public function setLinkedin(?string $linkedin): self
+    {
+        $this->linkedin = $linkedin;
 
         return $this;
     }
