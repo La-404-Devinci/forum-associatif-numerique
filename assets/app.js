@@ -23,7 +23,7 @@ document.querySelector('#navigation-burger').addEventListener('click', function(
     document.querySelector('.navigation__main-menu-content').classList.toggle('active')
 })
 
-/*if(document.querySelectorAll('.home-theme__cat-card') != null) {
+if(document.querySelectorAll('.home-theme__cat-card') != null) {
     let maxHeight = 0
     let query = document.querySelectorAll('.home-theme__cat-card > div p:first-of-type')
     query.forEach(function(item){
@@ -31,15 +31,18 @@ document.querySelector('#navigation-burger').addEventListener('click', function(
         if(maxHeight <= item.offsetHeight) {
             maxHeight = item.offsetHeight
         }
+
     })
+    console.log(maxHeight)
     query.forEach(function(item){
         if(maxHeight != item.offsetHeight) {
             //let font = window.getComputedStyle(item).fontSize
-            //console.log('font ' + font)
-            item.style.paddingTop = maxHeight / 4 + 'px'
+            console.log((maxHeight - item.offsetHeight) / 2)
+
+            item.style.paddingTop = ((maxHeight - item.offsetHeight) / 2) + 15 + 'px'
         }
     })
-}*/
+}
 if(document.querySelector('.associations-single .galerie') != null) {
     var grid = document.querySelector('.associations-single .galerie');
     ImagesLoaded(grid, function () {
