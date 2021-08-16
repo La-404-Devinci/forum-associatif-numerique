@@ -66,6 +66,7 @@
       input {
         height: 35px;
         width: 100%;
+        border-radius: 3px;
         &[type=text], &[type=email] {
           background: #ffffff;
           color: #000000;
@@ -88,6 +89,7 @@
         background: #ffffff;
         color: #000000;
         padding: 8px 20px;
+        border-radius: 3px;
         @include font-props(14,400);
 
         @include lg {
