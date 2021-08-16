@@ -65,7 +65,7 @@ class ProfileFormType extends AbstractType
             ->add('Modifier', SubmitType::class, ['label' => 'Enregistrer les modifications'])
             ->add('Annuler', ResetType::class)
             ->add('email', EmailType::class, [
-                'label' => 'Adresse Email',
+                'label' => 'Adresse email',
                 'required' => true
             ])
             ->add('instagram', UrlType::class, [
