@@ -28,7 +28,7 @@ class ProfileFormType extends AbstractType
             ->add('logo', FileType::class, [
                 'mapped' => false,
                 'label' => 'Logo',
-                'required' => false
+                'required' => true
             ])
             ->add('thumbnail', HiddenType::class, [
                 'mapped' => true,
@@ -37,7 +37,7 @@ class ProfileFormType extends AbstractType
             ->add('banner', FileType::class, [
                 'label' => 'Bannière',
                 'mapped' => false,
-                'required' => false
+                'required' => true
             ])
             ->add('catchphrase', TextType::class, [
                 'label' => 'Phrase d\'accroche',
