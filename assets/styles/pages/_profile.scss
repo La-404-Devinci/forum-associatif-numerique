@@ -11,6 +11,11 @@
       margin-bottom: 40px;
     }
 
+    *::placeholder {
+      color: #8C8C8C;
+      font-style: italic;
+    }
+
     .title {
       @include font-props(24,700);
       margin-bottom: 30px;

@@ -72,42 +72,42 @@ class ProfileFormType extends AbstractType
                 'default_protocol' => 'https',
                 'label' => 'Instagram',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://instagram.com/association' ]
             ])
             ->add('twitter', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Twitter',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://twitter.com/association' ]
             ])
             ->add('youtube', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Youtube',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://youtube.com/association' ]
             ])
             ->add('twitch', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Twitch',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://twitch.tv/association' ]
             ])
             ->add('discord', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Discord',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://discord.gg/association' ]
             ])
             ->add('facebook', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Facebook',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://facebook.com/assocation' ]
             ])
             ->add('autre', TextareaType::class, [
                 'label' => 'Autres réseaux',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'Urls en https://, séparées par une virgule' ]
             ])
             ->add('projects', TextareaType::class, [
                 'label' => 'Projets à venir',
@@ -115,13 +115,14 @@ class ProfileFormType extends AbstractType
             ])
             ->add('status', TextType::class, [
                 'label' => 'Statut(s)',
-                'required' => false
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'AP, AVSO, FFSU, BDE, Club école...' ]
             ])
             ->add('form', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Formulaire d\'inscription',
                 'required' => false,
-                'attr'=> [ 'placeholder' => 'Url en https://' ]
+                'attr'=> [ 'placeholder' => 'https://forms.gle/exemple' ]
             ])
         ;
     }
