@@ -6,7 +6,7 @@
 {% block body %}
     {% embed 'components/header-title.html.twig' %}
         {% block title %}Modification des informations de l’association{% endblock %}
-        {% block subtitle %}* : champ obligatoire{% endblock %}
+        {% block subtitle %}<span class="italic">* : champ obligatoire</span>{% endblock %}
     {% endembed %}
     <main>
         {{ form_start(form) }}
