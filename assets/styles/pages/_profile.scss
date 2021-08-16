@@ -8,7 +8,7 @@
 
   .form-section {
     &:not(:last-of-type) {
-      margin-bottom: 40px;
+      margin-bottom: 80px;
     }
 
     *::placeholder {
@@ -18,7 +18,15 @@
 
     .title {
       @include font-props(24,700);
-      margin-bottom: 30px;
+      margin-bottom: 33px;
+    }
+
+    &:nth-of-type(3) .form-content::before {
+      background: #7791BA;
+    }
+
+    &:nth-of-type(4) .form-content::before {
+      background: $bg-secondary;
     }
 
     .form-content {
@@ -31,7 +39,7 @@
         left: 0;
         top: 0;
         bottom: 0;
-        width: 3px;
+        width: 5px;
         background: $bg-primary;
       }
 
