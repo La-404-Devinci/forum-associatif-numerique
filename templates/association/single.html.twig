@@ -101,25 +101,25 @@
                 </div>
             </div>
             <div class="content social-links">
-                <a href="mailto:{{ association.email }}"><i class="fas fa-envelope"></i> {{ association.email }}</a>
+                <a href="mailto:{{ association.email }}"><i class="far fa-envelope"></i> {{ association.email }}</a>
                 {% if association.facebook is not empty %}
                     <a href="{{ association.facebook }}"><i class="fab fa-facebook-square"></i> Facebook</a>
                 {% endif %}
                 {% if association.instagram is not empty %}
-                    <a href="{{ association.instagram }}"><i class="fab fa-instagram-square"></i> Instagram</a>
+                    <a href="{{ association.instagram }}"><i class="fab fa-instagram"></i> Instagram</a>
                 {% endif %}
                 {% if association.discord is not empty %}
                     <a href="{{ association.discord }}"><i class="fab fa-discord"></i> Discord</a>
                 {% endif %}
                 {% if association.youtube is not empty %}
-                    <a href="{{ association.youtube }}"><i class="fab fa-youtube-square"></i> Youtube</a>
+                    <a href="{{ association.youtube }}"><i class="fab fa-youtube"></i> Youtube</a>
                 {% endif %}
                 {% if association.twitch is not empty %}
                     <a href="{{ association.twitch }}"><i class="fab fa-twitch"></i> Twitch</a>
                 {% endif %}
                 {% if links != 'empty' %}
                     <div class="links">
-                        <i class="fas fa-search-plus"></i>
+                        <i class="fas fa-plus-circle"></i>
                         <div>
                             {% for link in links %}
                                 <a href="{{ link }}">{{ link }}</a>
