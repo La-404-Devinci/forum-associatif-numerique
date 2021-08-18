@@ -90,6 +90,7 @@
         color: #000000;
         padding: 8px 20px;
         border-radius: 3px;
+        vertical-align: top;
         @include font-props(14,400);
 
         @include lg {
