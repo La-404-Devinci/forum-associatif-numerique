@@ -98,6 +98,12 @@ class ProfileFormType extends AbstractType
                 'required' => false,
                 'attr'=> [ 'placeholder' => 'https://discord.gg/association' ]
             ])
+            ->add('linkedin', UrlType::class, [
+                'default_protocol' => 'https',
+                'label' => 'LinkedIn',
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'https://linkedin.fr/association' ]
+            ])
             ->add('facebook', UrlType::class, [
                 'default_protocol' => 'https',
                 'label' => 'Facebook',

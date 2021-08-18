@@ -108,14 +108,8 @@
                 {% if association.instagram is not empty %}
                     <a href="{{ association.instagram }}"><i class="fab fa-instagram"></i> Instagram</a>
                 {% endif %}
-                {% if association.discord is not empty %}
-                    <a href="{{ association.discord }}"><i class="fab fa-discord"></i> Discord</a>
-                {% endif %}
-                {% if association.youtube is not empty %}
-                    <a href="{{ association.youtube }}"><i class="fab fa-youtube"></i> Youtube</a>
-                {% endif %}
-                {% if association.twitch is not empty %}
-                    <a href="{{ association.twitch }}"><i class="fab fa-twitch"></i> Twitch</a>
+                {% if association.twitter is not empty %}
+                    <a href="{{ association.twitter }}"><i class="fab fa-twitter"></i> Twitter</a>
                 {% endif %}
                 {% if links != 'empty' %}
                     <div class="links">
@@ -127,6 +121,19 @@
                         </div>
                     </div>
                 {% endif %}
+                {% if association.linkedin is not empty %}
+                    <a href="{{ association.linkedin }}"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                {% endif %}
+                {% if association.discord is not empty %}
+                    <a href="{{ association.discord }}"><i class="fab fa-discord"></i> Discord</a>
+                {% endif %}
+                {% if association.youtube is not empty %}
+                    <a href="{{ association.youtube }}"><i class="fab fa-youtube"></i> Youtube</a>
+                {% endif %}
+                {% if association.twitch is not empty %}
+                    <a href="{{ association.twitch }}"><i class="fab fa-twitch"></i> Twitch</a>
+                {% endif %}
+
             </div>
         </div>
         {% endif %}

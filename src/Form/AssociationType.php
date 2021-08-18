@@ -91,6 +91,12 @@ class AssociationType extends AbstractType
                 'required' => false,
                 'attr'=> [ 'placeholder' => 'Url en https://' ]
             ])
+            ->add('linkedin', UrlType::class, [
+                'default_protocol' => 'https',
+                'label' => 'LinkedIn',
+                'required' => false,
+                'attr'=> [ 'placeholder' => 'https://linkedin.fr/association' ]
+            ])
             ->add('autre', TextareaType::class, [
                 'label' => 'Autres réseaux',
                 'required' => false,

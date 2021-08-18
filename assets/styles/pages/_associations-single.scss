@@ -195,6 +195,11 @@
 
         &.social-links {
 
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(9, auto);
+            grid-auto-flow: column;
+
             i {
               color: $color-secondary;
               font-size: 50px;
@@ -217,16 +222,19 @@
             .links {
               display: flex;
               align-items: center;
+              order: 1;
               a {
                 margin-bottom: 15px;
               }
             }
 
             @include xl {
-              display: grid;
               grid-template-columns: repeat(2, 1fr);
-              grid-template-rows: repeat(4, auto);
-              grid-auto-flow: column;
+              grid-template-rows: repeat(5, auto);
+
+              .links {
+                order: 0;
+              }
 
             }
 
