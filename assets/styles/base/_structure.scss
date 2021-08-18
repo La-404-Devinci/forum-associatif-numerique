@@ -13,6 +13,10 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
+
+    &:visited, &:focus{
+        color: inherit;
+    }
 }
 
 h1 {
