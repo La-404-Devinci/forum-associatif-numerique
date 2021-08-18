@@ -33,17 +33,33 @@
       @include lg {
         margin-top: 200px;
       }
-
-
+      
       > img {
-        width: 40%;
+        width: 80%;
         position: absolute;
         top: -120px;
-        display: none;
+        height: 170px;
+        object-fit: cover;
+        z-index: 0;
+        max-width: 250px;
+
+        @include sm {
+          max-width: none;
+          width: 70%;
+          height: 200px;
+        }
+
+        @include md {
+          width: 60%;
+        }
+
         @include lg {
-          display: inherit;
-          z-index: 0;
           right: unset;
+          width: 40%;
+        }
+
+        @include xl {
+          height: 310px;
         }
       }
 
@@ -51,8 +67,12 @@
         width: 100%;
       }
 
+      &:not(.no-img) {
+        margin-top: 200px;
+      }
+
       > div {
-        width: 100%;
+        width: 90%;
         background-color: $bg-medium-grey;
         padding: 40px 50px 40px 80px;
         margin-left: auto;
