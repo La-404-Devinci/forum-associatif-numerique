@@ -10,6 +10,17 @@
     {% endembed %}
     <main>
         {{ form_start(form) }}
+        <div class="form-settings">
+            <div class="form-language">
+                <p>Modifier les informations en :</p>
+                <a>Français</a>
+                <a>Anglais</a>
+            </div>
+            <div class="form-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            </div>
+        </div>
         <div class="my-custom-class-for-errors">
             {{ form_errors(form) }}
         </div>
