@@ -109,3 +109,9 @@ if(document.querySelector(".profil-asso") != null) {
     })
 
 }
+
+if(document.querySelector('.button-up') != null) {
+    document.querySelector('.button-up').addEventListener("click", function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+}
