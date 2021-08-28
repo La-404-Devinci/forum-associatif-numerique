@@ -199,6 +199,7 @@
             grid-template-columns: 1fr;
             grid-template-rows: repeat(9, auto);
             grid-auto-flow: column;
+            gap: 50px;
 
             i {
               color: $color-secondary;
@@ -211,7 +212,6 @@
               align-items: center;
               color: $color-main;
               @include font-props(18,500);
-              margin-bottom: 50px;
               transition: all 0.4s;
 
               &:hover {
