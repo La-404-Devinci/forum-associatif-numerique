@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Repository\AssociationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,13 +14,13 @@ class CategoryController extends AbstractController
     // -------------- ASSO FILTERED BY CAT --------------
 
     #[Route('/categories/{slug}', name: 'filtered_assos')]
-    public function filtered($slug, CategoryRepository $categoryRepository): Response
+    public function filtered(Category $category, AssociationRepository $associationRepository): Response
     {
         // récupérer les datas de la base de données
 
-        $category = $categoryRepository->findOneBySlug($slug);
+        $sortByDefault = $_GET['sort'] ?? "ASC";
 
-        $associations = $category->getAssociations();
+        $associations = $associationRepository->findBy(['category' => $category],['slug' => $sortByDefault]);
 
         // si il n'y en a pas alors on lance une erreur avec un message
         

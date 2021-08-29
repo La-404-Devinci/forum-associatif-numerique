@@ -122,6 +122,8 @@
           @include font-props(14,400);
           margin-bottom: 32px;
           line-height: 1.8;
+          height: 10vh;
+          overflow: hidden;
         }
 
         a {
