@@ -16,12 +16,38 @@ import Isotope from 'isotope-layout';
 import ImagesLoaded from 'imagesloaded';
 import GLightbox from 'glightbox';
 
+
+/* COOKIES MANAGEMENT */
+
+window.axeptioSettings = {
+    clientId:"6129f18380c3c43c01d723dc",
+    cookiesVersion:"forum associatif numerique-base",
+};
+
+(function(d,s) {
+    var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+    e.async = true; e.src = "//static.axept.io/sdk.js";
+    t.parentNode.insertBefore(e, t);
+})(document, "script");
+
+void 0 === window._axcb && (window._axcb = []);
+window._axcb.push(function(axeptio) {
+    axeptio.on("cookies:complete", function(choices) {
+
+    })
+})
+
+
+/* Init Animate on scroll */
 AOS.init();
 
+/* TOGGLE BURGER MENU */
 document.querySelector('#navigation-burger').addEventListener('click', function(){
     this.classList.toggle('active')
     document.querySelector('.navigation__main-menu-content').classList.toggle('active')
 })
+
+/* FIX TEXT PLACEMENT ON CATEGORIES CARDS COMPONENT */
 
 if(document.querySelectorAll('.home-theme__cat-card') != null) {
     let maxHeight = 0
@@ -43,6 +69,9 @@ if(document.querySelectorAll('.home-theme__cat-card') != null) {
         }
     })
 }
+
+/* MASONRY LAYOUT AND LIGHTBOX ON GALLERIES */
+
 if(document.querySelector('.associations-single .galerie') != null) {
     var grid = document.querySelector('.associations-single .galerie');
     ImagesLoaded(grid, function () {
@@ -62,6 +91,9 @@ lightbox.on('open', (target) => {
     console.log('lightbox opened');
 });
 
+
+/* MARGIN ON SINGLE ASSOCIATION TITLE CARD (RESPONSIVE FIX WITH ABSOLUTE POSITION) */
+
 var singleHeightSelector = document.querySelector('.associations-single__title');
 if(singleHeightSelector != null) {
     var singleHeight = singleHeightSelector.offsetHeight - 50;
@@ -72,6 +104,8 @@ if(singleHeightSelector != null) {
         singleHeightSelector.parentElement.style.marginBottom = singleHeight + 'px'
     });
 }
+
+/* ASSOCIATION LOGO ON LOGIN PAGE */
 
 if(document.querySelector('.login-page') != null) {
     document.querySelector('#inputName').addEventListener('input', function(){
@@ -86,6 +120,8 @@ if(document.querySelector('.login-page') != null) {
         }
     })
 }
+
+/* ON SINGLE EDIT PAGE - IMAGE THUMBNAIL SELECTOR */
 
 if(document.querySelector(".profil-asso") != null) {
 
@@ -108,4 +144,12 @@ if(document.querySelector(".profil-asso") != null) {
         })
     })
 
+}
+
+/* BACK TO TOP COMPONENT */
+
+if(document.querySelector('.button-up') != null) {
+    document.querySelector('.button-up').addEventListener("click", function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
 }

@@ -10,6 +10,20 @@
     </header>
 
     <main>
+        <div class="category-settings">
+            <span>
+            {% if category.associations|length < 2 %}
+                {{ category.associations|length }} <span>association</span>
+            {% else %}
+                {{ category.associations|length }} <span>associations</span>
+            {% endif %}
+            </span>
+            <div class="category-sort">
+                <a>De A à Z</a>
+                <a>De Z à A</a>
+            </div>
+        </div>
+
         {% for association in associations %}
             <div class="category__card{% if association.thumbnail is empty %} no-img{% endif %}">
                 {% if association.thumbnail is not empty %}
@@ -32,4 +46,5 @@
         <p>Et si tu n’arrives pas à choisir ou préfères avoir <span class="bold color-secondary">une vue d’ensemble des 58 associations</span></p>
         <a href="/associations" class="button-link">Découvre toutes les associations</a>
     </section>
+    {% include "components/button-up-page.html.twig" %}
 {% endblock %}

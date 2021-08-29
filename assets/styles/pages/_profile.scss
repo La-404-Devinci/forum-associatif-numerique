@@ -2,8 +2,64 @@
 
   main {
     @include pagespadding;
-    padding-top: 70px;
+    padding-top: 40px;
     padding-bottom: 120px;
+  }
+
+  .form-settings {
+    margin-bottom: 45px;
+    @include font-props(14,200);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include md {
+      justify-content: space-between;
+    }
+
+    .form-language {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+
+      p {
+        width: 100%;
+        padding-bottom: 19px;
+      }
+
+      @include md {
+        flex-wrap: nowrap;
+        justify-content: left;
+        text-align: justify;
+        width: auto;
+
+        p {
+          width: auto;
+        }
+      }
+
+      a:first-of-type {
+        padding: 0 25px;
+      }
+    }
+
+    .form-logout {
+      padding-top: 52px;
+
+      @include md {
+        padding-top: inherit;
+      }
+
+      i {
+        margin-right: 5px;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
   }
 
   .form-section {

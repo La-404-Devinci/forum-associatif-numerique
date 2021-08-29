@@ -26,6 +26,25 @@
       margin-bottom: 120px;
     }
 
+    .category-settings {
+      @include font-props(14,300);
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+
+      .category-sort {
+        a:first-of-type {
+          padding-right: 15px;
+        }
+
+        @include md {
+          a:first-of-type {
+            padding-right: 33px;
+          }
+        }
+      }
+    }
+
     .category__card {
       position: relative;
       margin-top: 80px;
