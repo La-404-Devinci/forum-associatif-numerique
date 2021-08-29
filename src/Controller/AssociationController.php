@@ -64,7 +64,6 @@ class AssociationController extends AbstractController
         $user = $this->getUser();
         $form = $this->createForm(ProfileFormType::class, $user);
         $form->handleRequest($request);
-        //dd($user);
         $filesystem = new Filesystem();
         $galerie = 'empty';
         if($filesystem->exists(__DIR__.'/../../public/uploads/' . $user->getSlug() . '/images')) {
