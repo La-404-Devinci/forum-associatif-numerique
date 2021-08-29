@@ -12,7 +12,7 @@
     }
 
     @include xl {
-      padding-top: 100px;
+      padding-top: 75px;
     }
 
     > * {
@@ -75,7 +75,7 @@
     }
 
     .home-header-image {
-      margin-top: 75px;
+      margin-top: 20px;
       @include image-border();
     }
   }
