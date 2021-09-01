@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialiser son mot de passe{% endblock %}
+
+{% block body %}
+   
+    {% embed 'components/header-title.html.twig' %}
+        {% block title %}Réinitialiser son mot de passe{% endblock %}
+        {% block subtitle %}{% endblock %}
+    {% endembed %}
+    <main class="password-page">
+     {{ form_start(resetForm) }}
+        {{ form_row(resetForm.plainPassword) }}
+        <button class="button-link">Reset password</button>
+    {{ form_end(resetForm) }}
+    </main>
+{% endblock %}
