@@ -126,3 +126,13 @@ textarea {
         width: 70%;
     }
 }
+
+::-moz-selection { /* Code for Firefox */
+color: $color-primary;
+background: none;
+}
+
+::selection {
+color: $color-primary;
+background: none;
+}
