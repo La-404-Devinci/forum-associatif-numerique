@@ -55,3 +55,5 @@ symfony serve
 ```
 yarn encore dev --watch
 ```
+
+ENJOY ;)
