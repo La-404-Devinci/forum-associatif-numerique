@@ -76,12 +76,18 @@ class AssociationController extends AbstractController
                     array_push($galerie, $file->getRelativePathname());
                 }
             }
-        }
+        }   
 
-
+            if(isset($_GET['image'])) {
+                $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images";
+                $delete_image = $_GET['image'];
+                unlink($folderPath . '/' . $delete_image);
+            }
 
 
         if($form->isSubmitted() && $form->isValid()) {
+
+
             
             $logoFile =$form->get('logo')->getData();
             $videoFile =$form->get('video')->getData();
