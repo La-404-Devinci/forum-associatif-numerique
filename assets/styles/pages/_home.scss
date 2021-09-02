@@ -21,6 +21,23 @@
 
     .home-header-content {
       padding-top: 25px;
+
+      &-link {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        div {
+          margin-top: 20px;
+          @include font-props(12, 300);
+          color: $color-light-grey;
+
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+
       &-logo {
         display: flex;
         gap: 10px;
