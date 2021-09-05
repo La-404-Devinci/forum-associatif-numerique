@@ -62,6 +62,14 @@ class AssociationController extends AbstractController
     public function editProfile(Request $request, SluggerInterface $slugger)
     {
         $user = $this->getUser();
+
+        if(isset($_GET['image'])) {
+            $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images";
+            $delete_image = $_GET['image'];
+            unlink($folderPath . '/' . $delete_image);
+            return $this->redirect("/profil");
+        }
+
         $form = $this->createForm(ProfileFormType::class, $user);
         $form->handleRequest($request);
         $filesystem = new Filesystem();
@@ -78,17 +86,7 @@ class AssociationController extends AbstractController
             }
         }   
 
-            if(isset($_GET['image'])) {
-                $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images";
-                $delete_image = $_GET['image'];
-                unlink($folderPath . '/' . $delete_image);
-            }
-
-
         if($form->isSubmitted() && $form->isValid()) {
-
-
-            
             $logoFile =$form->get('logo')->getData();
             $videoFile =$form->get('video')->getData();
             $imageFile =$form->get('image')->getData();
