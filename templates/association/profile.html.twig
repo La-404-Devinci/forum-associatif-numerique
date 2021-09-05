@@ -117,6 +117,7 @@
                     {% for image in images %}
                         <div>
                             <img src="{{ asset('uploads/' ~ slug ~ '/images/' ~ image ~ '') }}" alt="Galerie - Image">
+                            <a href="{{ app.request.pathinfo ~ '?image=' ~ image }}">Supprimer</a>
                         </div>
                     {% endfor %}
                 </div>
