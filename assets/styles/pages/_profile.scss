@@ -156,10 +156,13 @@
     }
 
     .form-gallery {
-      padding: 65px 90px;
+      padding: 40px 30px;
       background: $bg-medium-grey;
       border-radius: 6px;
       width: 100%;
+      @include lg {
+        padding: 65px 90px;
+      }
 
       .form-item {
         text-align: center;
@@ -205,8 +208,11 @@
         justify-content: space-between;
         flex-wrap: wrap;
         > div {
-          width: 30%;
+          width: 100%;
           margin-bottom: 40px;
+          @include lg {
+            width: 30%;
+          }
           img {
             border: 5px solid transparent;
             &.active {
