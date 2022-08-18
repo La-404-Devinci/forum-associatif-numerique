@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
 use App\Entity\Association;
+use App\Entity\Category;
 use App\Form\ProfileFormType;
+use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use App\Repository\CategoryRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AssociationController extends AbstractController
@@ -62,6 +64,10 @@ class AssociationController extends AbstractController
     public function editProfile(Request $request, SluggerInterface $slugger)
     {
         $user = $this->getUser();
+
+        if (!$user->getValidated()) {
+            return $this->redirectToRoute('app_validated_password');
+        }
 
         if(isset($_GET['image'])) {
             $folderPath = $this->getParameter('kernel.project_dir').'/public/uploads/' . $user->getSlug() . "/images";
