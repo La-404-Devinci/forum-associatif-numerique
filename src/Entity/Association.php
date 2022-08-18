@@ -134,6 +134,11 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $linkedin;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $validated;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -459,6 +464,18 @@ class Association implements UserInterface, PasswordAuthenticatedUserInterface
     public function setThumbnail(string $thumbnail): self
     {
         $this->thumbnail = $thumbnail;
+
+        return $this;
+    }
+
+    public function getValidated(): ?string
+    {
+        return $this->validated;
+    }
+
+    public function setValidated(?string $validated): self
+    {
+        $this->validated = $validated;
 
         return $this;
     }

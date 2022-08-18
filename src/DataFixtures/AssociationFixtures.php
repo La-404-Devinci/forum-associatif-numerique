@@ -38,6 +38,7 @@ class AssociationFixtures extends Fixture
         $association->setYoutube('c\'est le youtube');
         $association->setTwitch('c\'est le twitch');
         $association->setDiscord('c\'est le discord');
+        $association->setValidated(true);
         $manager->persist($association);
 
         $manager->flush();
