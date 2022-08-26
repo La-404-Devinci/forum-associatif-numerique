@@ -49,7 +49,7 @@ class SecurityController extends AbstractController
     {
         $user = $this->getUser();
 
-        if($user?->getValidated()) {
+        if($user->getValidated()) {
             return $this->redirectToRoute('profil');
         }
 

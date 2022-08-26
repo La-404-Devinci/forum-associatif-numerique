@@ -69,17 +69,10 @@
                 <img src="{{ asset('build/images/menu/art.png') }}" alt="Icone Art & Culture">
                 <span>Art & Culture</span>
             </a>
-            {% if app.user %}
-            <a href="/logout">
-                <img src="{{ asset('build/images/menu/art.png') }}" alt="Icone Art & Culture">
-                <span>Logout</span>
+            <a href="/associations">
+                <img src="{{ asset('build/images/menu/list.png') }}" alt="Icone Art & Culture">
+                <span>Voir tout</span>
             </a>
-            {% else %}
-            <a href="/login">
-                <img src="{{ asset('build/images/menu/art.png') }}" alt="Icone Art & Culture">
-                <span>Login</span>
-            </a>
-            {% endif %}
         </div>
 
 

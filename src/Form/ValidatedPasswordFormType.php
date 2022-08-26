@@ -28,7 +28,7 @@ class ValidatedPasswordFormType extends AbstractType
                 'required' => true
             ])
             ->add('new_password_confirm', TextType::class, [
-                'label' => 'Confirmation du nouveau mot de passe',
+                'label' => 'Confirmation du mot de passe',
                 'required' => true,
                 'mapped' => false,
             ])

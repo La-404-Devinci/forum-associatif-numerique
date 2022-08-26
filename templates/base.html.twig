@@ -25,7 +25,7 @@
         {% if app.request.get('_route') != 'profil' %}
             {% embed "components/header-banner.html.twig" with {'external': true} %}
                 {% block link %}{{ link }}{% endblock %}
-                {% block text %}Hésite pas à checker le live de Poletech !{% endblock %}
+                {% block text %}Toute la journée, participe au live Facebook de Poletech et découvre des assos en direct !{% endblock %}
                 {% block icon %}<i class="fas fa-external-link-alt"></i>{% endblock %}
             {% endembed %}
         {% endif %}
