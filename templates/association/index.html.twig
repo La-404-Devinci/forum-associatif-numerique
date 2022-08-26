@@ -28,9 +28,9 @@
             </div>
 
             <div class="home-header-content-link">
-                <a href="https://discord.gg/9rMBAXrAfm" target="_blank" rel="noopener, noreferrer" class="button-link"><i class="fab fa-discord"></i>Rejoindre le discord</a>
+                <a href="{{ link }}" target="_blank" rel="noopener, noreferrer" class="button-link"><i class="fab fa-facebook-square"></i>Regarder le live</a>
                 <div>
-                    <a href="https://discord.gg/9rMBAXrAfm" target="_blank" rel="noopener, noreferrer">Je ne suis pas à l'aise avec Discord</a>
+                    <a href="https://www.facebook.com/help/234849600302373/?helpref=search&query=live&search_session_id=8efe1db467e0483b6fabb981a536f3f3&sr=9" target="_blank" rel="noopener, noreferrer">Je ne suis pas à l'aise avec Facebook Live</a>
                     <i class="fas fa-external-link-alt"></i>
                 </div>
             </div>
@@ -46,11 +46,11 @@
         {% include 'layouts/cat-blocs.html.twig' %}
     </section>
     {% embed "components/cta-banner__cover.html.twig" with {'external': true} %}
-        {% block icone %}<i class="fab fa-discord"></i>{% endblock %}
+        {% block icone %}<i class="fab fa-facebook-square"></i>{% endblock %}
         {% block title %}Toute la journée{% endblock %}
-        {% block text %}Viens discuter avec les membres des associations sur Discord !{% endblock %}
-        {% block url %}https://discord.gg/9rMBAXrAfm{% endblock %}
-        {% block urltext %}https://discord.gg/9rMBAXrAfm{% endblock %}
+        {% block text %}Différentes associations seront présentées sur le live de Poletech !{% endblock %}
+        {% block url %}{{ link }}{% endblock %}
+        {% block urltext %}{{ link }}{% endblock %}
     {% endembed %}
     <section class="home-about">
         <div class="home-about__content">
@@ -81,7 +81,7 @@
                 <p>m&sup2; de locaux</p>
             </div>
             <div class="home-about__content-text">
-                <p>Au Pôle, nous avons la chance d’avoir un campus à l’américaine avec près de 58 000m2 de locaux ! De nombreuses salles et équipements sont à ta disposition si tu veux t’amuser ou créer le prochain Go-Go Gadget… De plus, avec l’arrivée des nouveaux locaux à quelques pas du pôle actuel, le champ des possibles va certainement encore s’élargir !
+                <p>Au Pôle, nous avons la chance d’avoir un campus à l’américaine avec près de 58 000m2 de locaux ! De nombreuses salles et équipements sont à ta disposition si tu veux t’amuser ou créer le prochain Go-Go Gadget… De plus, avec l'arrivée en janvier 2022 des nouveaux locaux de l'IIM et l'arrivée prochaine des nouveaux locaux de l'ESILV et l'EMLV, le champ des possibles s'élargi constamment !
                 </p>
             </div>
 

@@ -7,7 +7,6 @@
       width: 100%;
 
       .form-field {
-
         margin-bottom: 60px;
 
 
@@ -42,6 +41,7 @@
           width: 100%;
           height: 50px;
           background-color: $bg-medium-grey;
+          color: $color-main;
           @include font-props(14,400);
 
         }

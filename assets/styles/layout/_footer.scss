@@ -61,6 +61,7 @@ footer {
     ul {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       li {
 
         &:not(:last-child)::after {

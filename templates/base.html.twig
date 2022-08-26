@@ -20,14 +20,15 @@
     <body class="{% block bodyclass %}{% endblock %}">
         {% include "layouts/navigation.html.twig" %}
 
+        {% set link = "https://discord.gg" %}
+
         {% if app.request.get('_route') != 'profil' %}
             {% embed "components/header-banner.html.twig" with {'external': true} %}
-                {% block link %}https://discord.gg/9rMBAXrAfm{% endblock %}
-                {% block text %}Toute la journée, viens discuter avec les membres des associations sur Discord ! discord.gg/9rMBAXrAfm{% endblock %}
+                {% block link %}{{ link }}{% endblock %}
+                {% block text %}Toute la journée, participe au live Facebook de Poletech et découvre des assos en direct !{% endblock %}
                 {% block icon %}<i class="fas fa-external-link-alt"></i>{% endblock %}
             {% endembed %}
         {% endif %}
-
 
         {% block body %}{% endblock %}
         {% include "layouts/footer.html.twig" %}
