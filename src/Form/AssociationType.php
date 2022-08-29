@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Association;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -31,7 +32,15 @@ class AssociationType extends AbstractType
                 'multiple' => true,
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe'
+                'label' => 'Mot de passe',
+            ])
+            ->add('validated', ChoiceType::class, [
+                'label' => 'Mot de passe',
+                'choices' => [
+                    'Mot de passe à changer' => 0,
+                    'Mot de passe changé' => 1
+                ],
+                'required' => true
             ])
             ->add('logo')
             ->add('status', TextType::class, [
