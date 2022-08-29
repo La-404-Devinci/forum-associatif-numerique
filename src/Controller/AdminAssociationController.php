@@ -44,6 +44,7 @@ class AdminAssociationController extends AbstractController
             $passwordData =$form->get('password')->getData();
             $password = $this->encoder->hashPassword($association, $passwordData);
             $association->setPassword($password);
+            $association->setValidated(0);
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($association);

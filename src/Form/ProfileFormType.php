@@ -47,7 +47,7 @@ class ProfileFormType extends AbstractType
                 'label' => 'Description',
                 'required' => true
             ])
-            ->add('video', HiddenType::class, [
+            ->add('video', FileType::class, [
                 'mapped' => false,
                 'label' => 'Vidéo',
                 'required' => false,
