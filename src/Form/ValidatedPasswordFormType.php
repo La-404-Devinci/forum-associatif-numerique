@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -22,12 +23,12 @@ class ValidatedPasswordFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('password', TextType::class, [
+            ->add('password', PasswordType::class, [
                 'label' => 'Nouveau mot de passe',
                 'mapped' => false,
                 'required' => true
             ])
-            ->add('new_password_confirm', TextType::class, [
+            ->add('new_password_confirm', PasswordType::class, [
                 'label' => 'Confirmation du mot de passe',
                 'required' => true,
                 'mapped' => false,
