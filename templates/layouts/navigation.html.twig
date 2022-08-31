@@ -76,14 +76,18 @@
         </div>
         <div>
             {% if app.user %}
+                <a href="/profil">
+                    <img src="{{ asset('build/images/menu/profil.png') }}" alt="Icone profile">
+                    <span>Profile</span>
+                </a>
                 <a href="/logout">
                     <img src="{{ asset('build/images/menu/logout.png') }}" alt="Icone login">
-                    <span>Logout</span>
+                    <span>Déconnexion</span>
                 </a>
             {% else %}
                 <a href="/login">
                     <img src="{{ asset('build/images/menu/login.png') }}" alt="Icone login">
-                    <span>Login</span>
+                    <span>Connexion</span>
                 </a>
             {% endif %}
         </div>

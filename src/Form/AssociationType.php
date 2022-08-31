@@ -35,10 +35,10 @@ class AssociationType extends AbstractType
                 'label' => 'Mot de passe',
             ])
             ->add('validated', ChoiceType::class, [
-                'label' => 'Mot de passe',
+                'label' => 'Mdp validé',
                 'choices' => [
-                    'Mot de passe à changer' => 0,
-                    'Mot de passe changé' => 1
+                    "L'Association doit changer son mdp" => 0,
+                    "L'Association à changée son mdp" => 1
                 ],
                 'required' => true
             ])
