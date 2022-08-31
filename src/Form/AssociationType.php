@@ -38,7 +38,7 @@ class AssociationType extends AbstractType
                 'label' => 'Mdp validé',
                 'choices' => [
                     "L'Association doit changer son mdp" => 0,
-                    "L'Association à changée son mdp" => 1
+                    "L'Association à changé son mdp" => 1
                 ],
                 'required' => true
             ])
