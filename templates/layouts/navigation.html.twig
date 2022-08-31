@@ -74,7 +74,19 @@
                 <span>Voir tout</span>
             </a>
         </div>
-
+        <div>
+            {% if app.user %}
+                <a href="/logout">
+                    <img src="{{ asset('build/images/menu/logout.png') }}" alt="Icone login">
+                    <span>Logout</span>
+                </a>
+            {% else %}
+                <a href="/login">
+                    <img src="{{ asset('build/images/menu/login.png') }}" alt="Icone login">
+                    <span>Login</span>
+                </a>
+            {% endif %}
+        </div>
 
 
     </div>

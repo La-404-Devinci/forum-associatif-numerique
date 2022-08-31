@@ -20,12 +20,12 @@
     <body class="{% block bodyclass %}{% endblock %}">
         {% include "layouts/navigation.html.twig" %}
 
-        {% set link = "https://discord.gg" %}
+        {% set link = "https://www.twitch.tv/poletechpulv" %}
 
         {% if app.request.get('_route') != 'profil' %}
             {% embed "components/header-banner.html.twig" with {'external': true} %}
                 {% block link %}{{ link }}{% endblock %}
-                {% block text %}Toute la journée, participe au live Facebook de Poletech et découvre des assos en direct !{% endblock %}
+                {% block text %}Toute la journée, participe au live Twitch de Poletech et découvre des assos en direct !{% endblock %}
                 {% block icon %}<i class="fas fa-external-link-alt"></i>{% endblock %}
             {% endembed %}
         {% endif %}

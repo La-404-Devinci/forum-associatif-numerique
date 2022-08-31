@@ -84,7 +84,7 @@
             }
 
             @include lg {
-                grid-template-columns: repeat(4, auto);
+                grid-template-columns: repeat(5, auto);
                 justify-content: space-between;
                 grid-column-gap: unset;
             }
