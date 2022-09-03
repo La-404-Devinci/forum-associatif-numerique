@@ -1,0 +1,290 @@
+.home {
+    header {
+        @include pagespadding();
+        padding-top: 50px;
+        padding-bottom: 80px;
+
+        @include md {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding-top: 60px;
+        }
+
+        @include xl {
+            padding-top: 75px;
+        }
+
+        >* {
+            flex-basis: 50%;
+        }
+
+        .home-header-content {
+            padding-top: 25px;
+
+            &-link {
+                display: flex;
+                flex-direction: column;
+                align-items: unset;
+                width: 80%;
+                margin: 0 auto;
+
+                @include md() {
+                    align-items: flex-start;
+                    margin: unset;
+                    width: unset;
+                }
+
+                div {
+                    margin-top: 20px;
+                    @include font-props(12, 300);
+                    color: $color-light-grey;
+                    text-align: center;
+
+                    @include md() {
+                        text-align: unset;
+                    }
+
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            &-logo {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+
+                @include md {
+                    justify-content: unset;
+                }
+
+                @include lg {
+                    gap: 14px;
+                }
+
+                img {
+                    width: 41px;
+
+                    @include lg {
+                        width: 58px;
+                    }
+                }
+            }
+
+            &-title h1 {
+                @include font-props(36, 700);
+                margin-top: 24px;
+                margin-bottom: 30px;
+                line-height: 49px;
+                text-align: center;
+
+                @include md() {
+                    text-align: unset;
+                }
+
+                span {
+                    @include font-props(20, 400);
+
+                    .bold {
+                        font-weight: 700;
+                    }
+                }
+
+                h1>span {
+                    display: inherit;
+                }
+
+                @include lg {
+                    margin-bottom: 36px;
+                }
+
+                @include xxl {
+                    @include font-props(66, 700);
+                    margin-top: 50px;
+                    margin-bottom: 50px;
+                    line-height: 79px;
+
+                    span {
+                        @include font-props(34, 400);
+                    }
+                }
+            }
+        }
+
+        .home-header-image {
+            margin-top: 20px;
+            @include image-border();
+        }
+    }
+
+    &-theme {
+        @include pagespadding();
+        padding-top: 85px;
+        padding-bottom: 150px;
+        text-align: center;
+
+        &__cat {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: 34px;
+            row-gap: 40px;
+            margin-top: 60px;
+
+            &-card {
+                width: 90%;
+                border-radius: 8px;
+                background: $bg-linear-inverse;
+
+                @include md {
+                    width: calc((100% - 34px) / 2);
+                }
+
+                @include lg {
+                    width: calc((100% - 2*34px) / 3);
+                }
+
+                @include xl {
+                    width: calc((100% - 3*34px) / 4);
+                }
+
+                >div {
+                    height: calc(100% - 6px);
+                    margin: 3px;
+                    padding: 35px 20px;
+                    border-radius: 6px;
+                    background-color: $bg-main;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    img {
+                        width: 60px;
+                        height: 60px;
+                        object-fit: contain;
+                    }
+
+                    p {
+                        @include font-props(18, 400);
+                        line-height: 30px;
+                        margin-top: auto;
+                        padding-top: 30px;
+                        margin-bottom: 40px;
+                    }
+
+                    .home-theme__cat-card-title {
+                        @include font-props(24, 700);
+                        margin-bottom: 0;
+                        margin-top: 30px;
+                        line-height: 1.5;
+                        padding-top: 15px;
+                    }
+
+                    @include md {
+                        margin: 5px;
+                        height: calc(100% - 10px);
+                        border-radius: 4px;
+
+                        p {
+                            @include font-props(16, 400);
+                        }
+                    }
+
+                    @include xl {
+                        .home-theme__cat-card-title {
+                            @include font-props(28, 700);
+                        }
+
+                        p {
+                            @include font-props(20, 400);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-about {
+        @include pagespadding();
+        padding-top: 110px;
+        padding-bottom: 200px;
+
+        &__img {
+            @include image-border();
+            margin-bottom: 115px;
+        }
+
+        &__content {
+            display: flex;
+            flex-wrap: wrap;
+
+            &:nth-of-type(even) {
+                flex-direction: row-reverse;
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: 115px;
+            }
+
+            >div {
+                width: 100%;
+
+                @include xl {
+                    width: 50%;
+                    padding: 0 40px;
+                }
+            }
+
+            &-text {
+                margin-top: 30px;
+                text-align: justify;
+                @include font-props(16, 400);
+
+                @include md {
+                    @include font-props(20, 400);
+                }
+            }
+
+            &-number {
+                p {
+                    @include font-props(24, 700);
+                    line-height: 1.2;
+
+                    &:first-of-type {
+                        @include font-props(72, 700);
+                        color: $color-secondary;
+                    }
+
+                    @include md {
+                        @include font-props(36, 700);
+
+                        &:first-of-type {
+                            @include font-props(96, 700);
+                        }
+                    }
+
+                    @include xl {
+                        @include font-props(58, 700);
+
+                        &:first-of-type {
+                            @include font-props(164, 700);
+                        }
+                    }
+                }
+            }
+
+            // Change even the number alignement
+            &:nth-child(even) {
+                div:nth-child(1) {
+                    p {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}

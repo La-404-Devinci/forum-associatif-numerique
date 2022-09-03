@@ -1,0 +1,86 @@
+footer {
+    text-align: center;
+
+    @include lg {
+        h2 {
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+
+    .pre-footer {
+        padding: 50px 10% 80px 10%;
+        background-color: $bg-medium-grey;
+
+        &__content {
+            margin-top: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @include lg {
+                flex-wrap: nowrap;
+            }
+
+            >div {
+                width: 96%;
+                padding: 0 65px;
+
+                &:not(:last-child) {
+                    margin-bottom: 75px;
+                }
+
+                @include lg {
+                    width: calc(100%/3);
+
+                    &:not(:last-child) {
+                        margin-bottom: 0;
+                    }
+                }
+
+                p {
+                    @include font-props(18, 400)
+                }
+
+                p:first-of-type {
+                    @include font-props(24, 700)
+                }
+
+                img {
+                    height: 140px;
+                    width: auto;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        background-color: $bg-light-grey;
+        padding: 30px 10%;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            li {
+                &:not(:last-child)::after {
+                    content: '|';
+                    margin: 0 5px;
+                }
+            }
+
+            li,
+            a {
+                @include font-props(12, 400);
+                color: $color-light-grey;
+
+                @include md {
+                    @include font-props(18, 400);
+                }
+            }
+        }
+
+    }
+}
