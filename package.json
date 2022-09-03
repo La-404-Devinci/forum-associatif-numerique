@@ -1,29 +1,14 @@
 {
-    "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.3",
-        "@symfony/stimulus-bridge": "^2.0.0",
-        "@symfony/webpack-encore": "^1.0.0",
-        "aos": "^2.3.4",
-        "core-js": "^3.0.0",
-        "file-loader": "^6.0.0",
-        "imagesloaded": "^4.1.4",
-        "isotope-layout": "^3.0.6",
-        "masonry-layout": "^4.2.2",
-        "regenerator-runtime": "^0.13.2",
-        "stimulus": "^2.0.0",
-        "webpack-notifier": "^1.6.0"
-    },
-    "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server",
-        "dev": "encore dev",
-        "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "dev": "vite",
+        "build": "vite build"
     },
-    "dependencies": {
-        "glightbox": "^3.0.9",
-        "sass": "^1.35.2",
-        "sass-loader": "^12.1.0"
+    "devDependencies": {
+        "axios": "^0.27",
+        "laravel-vite-plugin": "^0.6.0",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "vite": "^3.0.0"
     }
 }
