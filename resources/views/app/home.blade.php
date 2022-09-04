@@ -41,7 +41,9 @@
     <section class="home-theme">
         <h2>Des associations aux <span class="color-secondary">thématiques variées</span></h2>
         <p class="subtitle">Par passion, par curiosité, une catégorie te correspond forcément&nbsp;!</p>
-        {% include 'layouts/cat-blocs.html.twig' %}
+
+        <x-categoryBlocks />
+
     </section>
 
     <x-ctaBanner
