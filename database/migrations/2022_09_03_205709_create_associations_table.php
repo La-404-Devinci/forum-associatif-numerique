@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('name');
             $table->enum('roles', ['user', 'admin']);
+            $table->string('email');
             $table->string('password');
             $table->text('logo');
             $table->string('status')->nullable();
@@ -25,7 +26,6 @@ return new class extends Migration
             $table->string('description');
             $table->string('profile_type')->nullable();
             $table->foreignId('category_id')->constrained('categories');
-            $table->string('email');
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
