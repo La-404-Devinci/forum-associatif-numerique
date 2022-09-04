@@ -41,18 +41,13 @@ if(document.querySelectorAll('.home-theme__cat-card') != null) {
     let maxHeight = 0
     let query = document.querySelectorAll('.home-theme__cat-card > div p:first-of-type')
     query.forEach(function(item){
-        console.log(item.offsetHeight)
         if(maxHeight <= item.offsetHeight) {
             maxHeight = item.offsetHeight
         }
-
     })
-    console.log(maxHeight)
     query.forEach(function(item){
         if(maxHeight != item.offsetHeight) {
             //let font = window.getComputedStyle(item).fontSize
-            console.log((maxHeight - item.offsetHeight) / 2)
-
             item.style.paddingTop = ((maxHeight - item.offsetHeight) / 2) + 15 + 'px'
         }
     })
@@ -76,7 +71,7 @@ if(document.querySelector('.associations-single .galerie') != null) {
 
 var lightbox = GLightbox();
 lightbox.on('open', (target) => {
-    console.log('lightbox opened');
+
 });
 
 

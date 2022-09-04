@@ -10,11 +10,20 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name',
         'description',
     ];
 
+    /**
+     * Auto-set values
+     * @return void
+     */
     protected static function boot()
     {
         parent::boot();
@@ -24,11 +33,22 @@ class Category extends Model
         });
     }
 
+    /**
+     * Get the route key for the model.
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
+    //======================================================================
+    // RELATIONS
+    //======================================================================
+
+    /**
+     * Get all the associations related to the category
+     */
     public function associations()
     {
         return $this->hasMany(Association::class);

@@ -115,6 +115,7 @@
 
                 &.required::after {
                     content: ' *';
+                    color: red;
                     @include font-props(18, 400);
                 }
             }

@@ -3,7 +3,6 @@
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\CategoryController;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Home page
 Route::get('/', [AppController::class, 'index'])->name('home');
-Route::resource('association', AssociationController::class);
-Route::resource('category', CategoryController::class);
+
+Route::get('login', [AppController::class, 'login'])->name('login');
+Route::post('login/post', [AppController::class, 'loginPost'])->name('login.post');
+Route::post('logout', [AppController::class, 'logout'])->name('logout');
+
+// Associations
+Route::resource('association', AssociationController::class)->except(['create', 'store', 'destroy']);
+
+// Categories
+Route::resource('category', CategoryController::class)->only(['index', 'show']);
+
+// Load 404 page for all wrong url
+Route::fallback(function() {
+    return view('app.404');
+});
