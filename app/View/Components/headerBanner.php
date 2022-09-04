@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class cta_banner extends Component
+class headerBanner extends Component
 {
     /**
      * Create a new component instance.
@@ -12,12 +12,9 @@ class cta_banner extends Component
      * @return void
      */
     public function __construct(
-        public string $title,
+        public string $link,
         public string $text,
-        public string $url,
-        public string $urlText,
-        public string $icon = '<i class="fab fa-discord"></i>',
-        public bool $singleAsso = false,
+        public string $icon = '<i class="fab fa-facebook"></i>',
         public bool $external = false,
     ) {}
 
@@ -28,6 +25,6 @@ class cta_banner extends Component
      */
     public function render()
     {
-        return view('components.cta_banner');
+        return view('components.header-banner');
     }
 }

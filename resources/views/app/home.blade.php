@@ -44,7 +44,7 @@
         {% include 'layouts/cat-blocs.html.twig' %}
     </section>
 
-    <x-cta_banner
+    <x-ctaBanner
         icon='<i class="fab fa-twitch"></i>'
         title="Toute la journée"
         text="Différentes associations seront présentées sur le live de Poletech !"

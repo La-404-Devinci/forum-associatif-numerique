@@ -1,0 +1,32 @@
+<?php
+
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+
+class buttonUpPage extends Component
+{
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Closure|string
+     */
+    public function render()
+    {
+        return <<<'blade'
+            <div class="button-up">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        blade;
+    }
+}
