@@ -20,10 +20,11 @@ return new class extends Migration
             $table->enum('roles', ['user', 'admin']);
             $table->string('email');
             $table->string('password');
-            $table->text('logo');
+            $table->foreignId('logo')->constrained('file');
             $table->string('status')->nullable();
             $table->string('catchphrase');
             $table->string('description');
+            $table->foreignId('video')->nullable()->constrained('files');
             $table->string('profile_type')->nullable();
             $table->foreignId('category_id')->constrained('categories');
             $table->string('facebook')->nullable();
@@ -34,10 +35,10 @@ return new class extends Migration
             $table->string('discord')->nullable();
             $table->string('tiktok')->nullable();
             $table->string('linkedin')->nullable();
-            $table->string('autre')->nullable();
+            $table->string('others')->nullable();
             $table->string('form')->nullable();
             $table->text('projects');
-            $table->string('thumbnail')->nullable();
+            $table->foreignId('thumbnail')->nullable()->constrained('files');
             $table->boolean('validated')->default(false);
             $table->timestamps();
         });

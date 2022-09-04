@@ -7,8 +7,8 @@
             @if ($singleAsso)
             <div>
             @endif
-                    <p class="title">{{ $title }}</p>
-                    <p>{{ $text }}</p>
+                <p class="title">{{ $title }}</p>
+                <p>{{ $text }}</p>
             @if ($singleAsso)
             </div>
             <div>

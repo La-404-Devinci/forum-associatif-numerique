@@ -2,7 +2,7 @@
     <h1>
         {{ $title }}
     </h1>
-    <p class="subtitle">
+    <p class="subtitle italic">
         {{ $subtitle }}
     </p>
 </header>
