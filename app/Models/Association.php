@@ -13,6 +13,7 @@ class Association extends Model
     protected $fillable = [
         'name',
         'roles',
+        'email',
         'password',
         'logo',
         'status',
@@ -20,7 +21,6 @@ class Association extends Model
         'description',
         'profile_type',
         'category_id',
-        'email',
         'facebook',
         'instagram',
         'twitter',

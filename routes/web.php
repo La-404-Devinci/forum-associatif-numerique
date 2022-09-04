@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\AssociationController;
+use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AppController::class, 'index'])->name('home');
+Route::resource('association', AssociationController::class);
+Route::resource('category', CategoryController::class);
