@@ -127,5 +127,16 @@
             </ul>
         </div>
     </footer>
+
+    @if( route()->current() == '/')
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD5VQDG0JS"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PD5VQDG0JS');
+        </script>
+    @endif
 </body>
 </html>
