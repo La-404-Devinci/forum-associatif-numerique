@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\Association;
+use App\Models\File;
 use Exception;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -19,13 +20,17 @@ class UploadHelper
     public static function uploadImage($file, Association $association)
     {
         if(in_array($file->extension(), ['jpg', 'jpeg', 'png', 'svg'])) {
-            $path = 'images/' . $association->slug . '/' . Carbon::now()->timestamp . '.' . $file->extension();
+            $path = 'images/' . $association->slug . '/' . uniqid() . '.' . $file->extension();
             try {
                 Storage::disk('local')->put($path, $file);
+                $uploaded_file = File::create([
+                    'path' => 'storage/' . $path,
+                    'type' => 'image',
+                ]);
             } catch (Exception $e) {
                 return;
             }
-            return 'storage/' . $path;
+            return $uploaded_file->id;
         }
     }
 
@@ -42,10 +47,14 @@ class UploadHelper
             $path = 'videos/' . $association->slug . '/' . Carbon::now()->timestamp . '.' . $file->extension();
             try {
                 Storage::disk('local')->put($path, $file);
+                $uploaded_file = File::create([
+                    'path' => 'storage/' . $path,
+                    'type' => 'video',
+                ]);
             } catch (Exception $e) {
                 return;
             }
-            return 'storage/' . $path;
+            return $uploaded_file->id;
         }
     }
 }
