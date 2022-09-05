@@ -128,7 +128,7 @@
         </div>
     </footer>
 
-    @if( route()->current() == '/')
+    @if(route()->current() == '/')
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD5VQDG0JS"></script>
         <script>
