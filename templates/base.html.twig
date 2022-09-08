@@ -43,5 +43,16 @@
 
 {% block body %}{% endblock %}
 {% include "layouts/footer.html.twig" %}
+<script>
+    window.axeptioSettings = {
+        clientId: "631a47c5fd0b59fd436b7935",
+    };
+
+    (function(d, s) {
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+        e.async = true; e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+    })(document, "script");
+</script>
 </body>
 </html>
