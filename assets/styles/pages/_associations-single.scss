@@ -171,6 +171,10 @@
       .content {
         flex-basis: 100%;
 
+        video {
+          max-height: 70vh;
+        }
+
         &.galerie {
 
           .galerie-image {
