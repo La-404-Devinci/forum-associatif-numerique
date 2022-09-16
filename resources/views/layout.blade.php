@@ -33,42 +33,42 @@
         </div>
         <div class="navigation__main-menu-content">
             <div>
-                <a href="/categories/bde-&-clubs-ecoles">
+                <a href="/category/bde-&-clubs-ecoles">
                     <img src="{{ asset('build/images/menu/bde.png') }}" alt="Icone BDE">
                     <span>BDE & Clubs écoles</span>
                 </a>
-                <a href="/categories/technologies">
+                <a href="/category/technologies">
                     <img src="{{ asset('build/images/menu/tech.png') }}" alt="Icone Technologies">
                     <span>Technologies</span>
                 </a>
 
             </div>
             <div>
-                <a href="/categories/engagement">
+                <a href="/category/engagement">
                     <img src="{{ asset('build/images/menu/engagement.png') }}" alt="Icone Engagement">
                     <span>Engagement</span>
                 </a>
-                <a href="/categories/multimedia">
+                <a href="/category/multimedia">
                     <img src="{{ asset('build/images/menu/multimedia.png') }}" alt="Icone Multimedia">
                     <span>Multimédia</span>
                 </a>
             </div>
             <div>
-                <a href="/categories/business">
+                <a href="/category/business">
                     <img src="{{ asset('build/images/menu/business.png') }}" alt="Icone Business">
                     <span>Business</span>
                 </a>
-                <a href="/categories/sports">
+                <a href="/category/sports">
                     <img src="{{ asset('build/images/menu/sport.png') }}" alt="Icone Sports">
                     <span>Sports</span>
                 </a>
             </div>
             <div>
-                <a href="/categories/art-&-culture">
+                <a href="/category/art-&-culture">
                     <img src="{{ asset('build/images/menu/art.png') }}" alt="Icone Art & Culture">
                     <span>Art & Culture</span>
                 </a>
-                <a href="/associations">
+                <a href="/association">
                     <img src="{{ asset('build/images/menu/list.png') }}" alt="Icone Art & Culture">
                     <span>Voir tout</span>
                 </a>
@@ -103,12 +103,12 @@
             <div class="pre-footer__content">
                 <div>
                     <img src="{{ asset('build/images/footer/poletech.png') }}" alt="Logo LDV Esport">
-                    <p><a href="/associations/poletech">Poletech</a></p>
+                    <p><a href="/association/poletech">Poletech</a></p>
                     <p>En charge de la Web TV</p>
                 </div>
                 <div>
                     <img src="{{ asset('build/images/footer/404.png') }}" alt="Logo La 404 Devinci">
-                    <p><a href="/associations/la-404-devinci">La 404 Devinci</a></p>
+                    <p><a href="/association/la-404-devinci">La 404 Devinci</a></p>
                     <p>En charge du site web</p>
                 </div>
                 <div>
@@ -128,7 +128,7 @@
         </div>
     </footer>
 
-    @if(route()->current() == '/')
+    {{-- @if(route()->current() == '/')
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD5VQDG0JS"></script>
         <script>
@@ -137,6 +137,6 @@
             gtag('js', new Date());
             gtag('config', 'G-PD5VQDG0JS');
         </script>
-    @endif
+    @endif --}}
 </body>
 </html>

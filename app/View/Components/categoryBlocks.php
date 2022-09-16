@@ -30,7 +30,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/bde.png') }}" alt="Icone BDE">
                         <p class="home-theme__cat-card-title">BDE & Clubs écoles</p>
                         <p>Fait vibrer les étudiants et rythme ton école&nbsp;!</p>
-                        <a href="/categories/bde-&-clubs-ecoles" class="button-link small">Découvrir</a>
+                        <a href="/category/bde-&-clubs-ecoles" class="button-link small">Découvrir</a>
                     </div>
                 </div>
                 <div class="home-theme__cat-card">
@@ -38,7 +38,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/engagement.png') }}" alt="Icone Engagement">
                         <p class="home-theme__cat-card-title">Engagement</p>
                         <p>Rend le monde meilleur et aide ceux qui peuvent l’être</p>
-                        <a href="/categories/engagement" class="button-link small">Découvrir</a>
+                        <a href="/category/engagement" class="button-link small">Découvrir</a>
                     </div>
                 </div>
                 <div class="home-theme__cat-card">
@@ -46,7 +46,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/business.png') }}" alt="Icone Business">
                         <p class="home-theme__cat-card-title">Business</p>
                         <p>Valorise ton profil professionnel grâce à la vie étudiante&nbsp;!</p>
-                        <a href="/categories/business" class="button-link small">Découvrir</a>
+                        <a href="/category/business" class="button-link small">Découvrir</a>
                     </div>
                 </div>
                 <div class="home-theme__cat-card">
@@ -54,7 +54,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/technologie.png') }}" alt="Icone Technologie">
                         <p class="home-theme__cat-card-title">Technologie</p>
                         <p>Tu es bricoleur, fan d’aviation ou d’automobile&nbsp;?</p>
-                        <a href="/categories/technologies" class="button-link small">Découvrir</a>
+                        <a href="/category/technologies" class="button-link small">Découvrir</a>
                     </div>
                 </div>
                 <div class="home-theme__cat-card">
@@ -62,7 +62,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/multimedia.png') }}" alt="Icone Multimédia">
                         <p class="home-theme__cat-card-title">Multimédia</p>
                         <p>Le coin des passionnés : photos, esport, jeux vidéo&nbsp;!</p>
-                        <a href="/categories/multimedia" class="button-link small">Découvrir</a>
+                        <a href="/category/multimedia" class="button-link small">Découvrir</a>
                     </div>
                 </div>
                 <div class="home-theme__cat-card">
@@ -70,7 +70,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/sport.png') }}" alt="Icone Sports">
                         <p class="home-theme__cat-card-title">Sports</p>
                         <p>Tout seul on va vite, ensemble on va plus loin</p>
-                        <a href="/categories/sports" class="button-link small">Découvrir</a>
+                        <a href="/category/sports" class="button-link small">Découvrir</a>
                     </div>
                 </div>
                 <div class="home-theme__cat-card">
@@ -78,7 +78,7 @@ class categoryBlocks extends Component
                         <img src="{{ asset('build/images/icones/art.png') }}" alt="Icone Art & Culture">
                         <p class="home-theme__cat-card-title">Art & Culture</p>
                         <p>Tu aimes le dessin, le théâtre ou la musique&nbsp;?</p>
-                        <a href="/categories/art-&-culture" class="button-link small">Découvrir</a>
+                        <a href="/category/art-&-culture" class="button-link small">Découvrir</a>
                     </div>
                 </div>
             </div>

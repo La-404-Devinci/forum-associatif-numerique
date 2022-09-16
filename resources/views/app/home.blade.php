@@ -42,11 +42,11 @@
         <h2>Des associations aux <span class="color-secondary">thématiques variées</span></h2>
         <p class="subtitle">Par passion, par curiosité, une catégorie te correspond forcément&nbsp;!</p>
 
-        <x-categoryBlocks />
+        <x-category-blocks />
 
     </section>
 
-    <x-ctaBanner
+    <x-cta-banner
         icon='<i class="fab fa-twitch"></i>'
         title="Toute la journée"
         text="Différentes associations seront présentées sur le live de Poletech !"
