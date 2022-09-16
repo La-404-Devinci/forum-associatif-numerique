@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('roles', ['user', 'admin']);
             $table->string('email');
             $table->string('password');
-            $table->foreignId('logo')->constrained('file');
+            $table->foreignId('logo')->constrained('files');
             $table->string('status')->nullable();
             $table->string('catchphrase');
             $table->string('description');
