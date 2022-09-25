@@ -36,7 +36,7 @@
 {% if app.request.get('_route') != 'profil' %}
     {% embed "components/header-banner.html.twig" with {'external': true} %}
         {% block link %}{{ link }}{% endblock %}
-        {% block text %}Toute la journée, participe au live Twitch de Poletech et découvre des assos en direct !{% endblock %}
+        {% block text %}Viens redécouvrir sur Youtube les associations présentées lors du live de Poletech !{% endblock %}
         {% block icon %}<i class="fas fa-external-link-alt"></i>{% endblock %}
     {% endembed %}
 {% endif %}
