@@ -232,7 +232,7 @@ class AssociationController extends AbstractController
 
     // -------------- LISTING ASSOS QUI RECRUTENT --------------
 
-    #[Route('/associations-qui-recruttent', name: 'associations-qui-recruttent')]
+    #[Route('/associations-qui-recrutent', name: 'associations-qui-recrutent')]
     public function joinThem(CategoryRepository $categoryRepository): Response
     {
 
