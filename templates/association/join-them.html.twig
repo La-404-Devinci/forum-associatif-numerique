@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Associations - Forum Associatif{% endblock %}
+{% block bodyclass %}associations-single{% endblock %}
+{% block body %}
+<main class="associations" id="associations">
+    <h1>Les associations recrutent !</h1>
+    <p class="subtitle">Retrouve ici la liste de toutes les associations du pôle, une d’entre elles te correspond forcément !</p>
+
+    <section class="associations-details">
+        {% for category in categories %}
+            <div class="associations-details__item">
+                <details>
+                    <summary>
+                    <span>
+                        {{category.name}}
+                    </span>
+
+                    </summary>
+
+                    {% for association in category.associations %}
+                        {% if association.form != null %}
+                            <a href="{{ path('association', {slug: association.slug}) }}">
+                                {% if association.logo != 'default' %}
+                                    <img src="{{ asset('uploads/' ~ association.slug ~ '/logos/' ~ association.logo ~ '') }}" alt="Logo de l'association {{ association.name }}">
+                                {% else %}
+                                    <img src="{{ asset('build/images/default/logo-default.png') }}" alt="Logo de présentation par défaut">
+                                {% endif %}
+                                {{association.name}} <span>{{association.catchphrase}}</span>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </details>
+            </div>
+        {% endfor %}
+    </section>
+
+</main>
+
+
+
+{% endblock %}

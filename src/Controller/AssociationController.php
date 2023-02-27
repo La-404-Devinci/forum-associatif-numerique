@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Association;
 use App\Entity\Category;
 use App\Form\ProfileFormType;
+use App\Repository\AssociationRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AssociationController extends AbstractController
@@ -209,7 +209,6 @@ class AssociationController extends AbstractController
 
     // -------------- LISTING ASSOS --------------
 
-
     #[Route('/associations', name: 'associations')]
     public function show(CategoryRepository $categoryRepository): Response
     {
@@ -227,6 +226,21 @@ class AssociationController extends AbstractController
         // on retourne ces datas dans la vue correspondante
 
         return $this->render('association/show.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+
+    // -------------- LISTING ASSOS QUI RECRUTENT --------------
+
+    #[Route('/associations-qui-recruttent', name: 'associations-qui-recruttent')]
+    public function joinThem(CategoryRepository $categoryRepository): Response
+    {
+
+        $categories = $categoryRepository->findAll();
+
+        // on retourne ces datas dans la vue correspondante
+
+        return $this->render('association/join-them.html.twig', [
             'categories' => $categories
         ]);
     }
