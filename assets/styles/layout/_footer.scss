@@ -52,6 +52,16 @@ footer {
           margin-bottom: 25px;
         }
       }
+      .egg-404-VC {
+        p > a::before {
+          content: "La 404 Devinci";
+        }
+      }
+      .egg-404-VC:hover{
+        p > a::before {
+          content: "Vincent et Clément";
+        }
+      }
     }
   }
 
